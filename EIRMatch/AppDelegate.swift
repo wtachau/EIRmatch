@@ -12,11 +12,46 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
                             
     var window: UIWindow?
+    // set up relevant view controllers
+    var navigationController: UINavigationController?
+    var homeController : EIRHomeController?
+    
+    var browseController : EIRBrowseController?
+    
+    var resultsController : EIRResultsController?
+    var postController : EIRPostController?
+    
+    var showAllController : EIRShowAllController?
+    var showAllHelper : EIRShowAllTableViewHelper?
 
 
     func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
-        // Override point for customization after application launch.
+
+        // Init view controllers
+        homeController = EIRHomeController()
+        
+        browseController = EIRBrowseController()
+        
+        resultsController = EIRResultsController()
+        postController = EIRPostController()
+        
+        showAllController = EIRShowAllController()
+        showAllHelper = EIRShowAllTableViewHelper()
+        showAllController!.tableView.dataSource = showAllHelper!
+        
+        navigationController = UINavigationController(rootViewController: homeController)
+        
+        if let navBar = navigationController?.navigationBar {
+            navBar.barTintColor = backgroundColor
+            navBar.translucent = false
+            navBar.tintColor = UIColor.whiteColor()
+            navBar.titleTextAttributes = NSDictionary(dictionary: [UIColor.whiteColor():NSForegroundColorAttributeName])
+        }
+        
+        self.window!.rootViewController = navigationController
+        
         return true
+        
     }
 
     func applicationWillResignActive(application: UIApplication!) {
