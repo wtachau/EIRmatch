@@ -19,7 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var browseController : EIRBrowseController?
     
     var resultsController : EIRResultsController?
+    
     var postController : EIRPostController?
+    var postHelper : EIRPostHelper?
     
     var showAllController : EIRShowAllController?
     var showAllHelper : EIRShowAllTableViewHelper?
@@ -33,7 +35,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         browseController = EIRBrowseController()
         
         resultsController = EIRResultsController()
+        
         postController = EIRPostController()
+        postHelper = EIRPostHelper(postController: postController!)
+        postController!.tableView.dataSource = postHelper!
+        postController!.tableView.delegate = postHelper!
         
         showAllController = EIRShowAllController()
         showAllHelper = EIRShowAllTableViewHelper()

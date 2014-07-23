@@ -13,8 +13,7 @@ class EIRCityPicker : UITableViewController {
     // Information about the implementation
     let cellHeight = Float(36.0)
     let cities = ["New York", "San Francisco", "Los Angeles", "Sunnyvale", "Las Vegas", "Orange County"]
-    
-    var navBarHeight : Float?
+
     var totalHeight : Float?
 
     var chosenCity = "which office do you work in?"
@@ -22,7 +21,6 @@ class EIRCityPicker : UITableViewController {
     override func viewDidLoad()  {
         tableView.backgroundColor = backgroundColor
         navigationItem.hidesBackButton = true
-        navBarHeight = Float(64)
-        totalHeight = tableView.bounds.size.height + navBarHeight!
+        totalHeight = tableView.bounds.size.height + navBarHeight
     }
 }

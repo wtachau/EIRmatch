@@ -25,3 +25,5 @@ let lightBlue = UIColorFromRGB(62, 152, 248)
 let lightGreen = UIColorFromRGB(49, 242, 149)
 let lightPurple = UIColorFromRGB(84, 24, 242)
 
+let navBarHeight = Float(64)
+

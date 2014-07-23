@@ -6,6 +6,9 @@
 //  Copyright (c) 2014 William Tachau. All rights reserved.
 //
 
+// obsolete -- text field is now uitextview which doesn't need this delegate
+
+/*
 import UIKit
 
 class EIRPostTextDelegate : NSObject, UITextViewDelegate {
@@ -23,3 +26,4 @@ class EIRPostTextDelegate : NSObject, UITextViewDelegate {
     }
     
 }
+*/

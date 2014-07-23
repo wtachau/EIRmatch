@@ -26,6 +26,8 @@
 		B85DC875197F069500E02452 /* EIRCityPickerTableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DC874197F069500E02452 /* EIRCityPickerTableViewHelper.swift */; };
 		B85DC877197F081000E02452 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DC876197F081000E02452 /* ViewController.swift */; };
 		B89EE056197F2C6D002F4FF4 /* EIRShowAllTableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89EE055197F2C6D002F4FF4 /* EIRShowAllTableViewHelper.swift */; };
+		B8FFC98C1980218500372EA7 /* EIRPostHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FFC98B1980218500372EA7 /* EIRPostHelper.swift */; };
+		B8FFC98E198021D000372EA7 /* EIRPostCellFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FFC98D198021D000372EA7 /* EIRPostCellFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		B85DC874197F069500E02452 /* EIRCityPickerTableViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRCityPickerTableViewHelper.swift; sourceTree = "<group>"; };
 		B85DC876197F081000E02452 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B89EE055197F2C6D002F4FF4 /* EIRShowAllTableViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRShowAllTableViewHelper.swift; sourceTree = "<group>"; };
+		B8FFC98B1980218500372EA7 /* EIRPostHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRPostHelper.swift; sourceTree = "<group>"; };
+		B8FFC98D198021D000372EA7 /* EIRPostCellFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRPostCellFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +188,8 @@
 			isa = PBXGroup;
 			children = (
 				B85DC864197EC6D700E02452 /* EIRPostController.swift */,
+				B8FFC98B1980218500372EA7 /* EIRPostHelper.swift */,
+				B8FFC98D198021D000372EA7 /* EIRPostCellFormatter.swift */,
 				B80FFF90197F5E5300D4A5D8 /* EIRPostTextDelegate.swift */,
 				B85DC872197F068900E02452 /* EIRCityPicker.swift */,
 				B85DC874197F069500E02452 /* EIRCityPickerTableViewHelper.swift */,
@@ -295,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B85DC877197F081000E02452 /* ViewController.swift in Sources */,
+				B8FFC98E198021D000372EA7 /* EIRPostCellFormatter.swift in Sources */,
 				B85DC861197DD04B00E02452 /* EIRResultsController.swift in Sources */,
 				B80FFF91197F5E5300D4A5D8 /* EIRPostTextDelegate.swift in Sources */,
 				B85DC875197F069500E02452 /* EIRCityPickerTableViewHelper.swift in Sources */,
@@ -302,6 +309,7 @@
 				B85DC86B197EDAFB00E02452 /* EIRShowAllController.swift in Sources */,
 				B85DC863197DD77000E02452 /* EIRHomeController.swift in Sources */,
 				B85DC837197D99F400E02452 /* AppDelegate.swift in Sources */,
+				B8FFC98C1980218500372EA7 /* EIRPostHelper.swift in Sources */,
 				B89EE056197F2C6D002F4FF4 /* EIRShowAllTableViewHelper.swift in Sources */,
 				B85DC873197F068900E02452 /* EIRCityPicker.swift in Sources */,
 				B85DC865197EC6D700E02452 /* EIRPostController.swift in Sources */,
