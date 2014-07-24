@@ -12,11 +12,12 @@ class EIRCityPicker : UITableViewController {
     
     // Information about the implementation
     let cellHeight = Float(36.0)
-    let cities = ["New York", "San Francisco", "Los Angeles", "Sunnyvale", "Las Vegas", "Orange County"]
+    let cities = [City.NewYork, City.SanFrancisco, City.LosAngeles, City.Sunnyvale, City.LasVegas, City.OrangeCounty]
 
     var totalHeight : Float?
 
     var chosenCity = "which office do you work in?"
+    var city : City?
     
     override func viewDidLoad()  {
         tableView.backgroundColor = backgroundColor

@@ -55,7 +55,7 @@ class EIRCityPickerTableViewHelper : NSObject, UITableViewDelegate, UITableViewD
         
         cell!.backgroundColor = buttonColor
         cell!.textLabel.font = UIFont(name: "HelveticaNeue-Light", size: 16.0)
-        cell!.textLabel.text = cityPicker!.cities[indexPath.row]
+        cell!.textLabel.text = cityPicker!.cities[indexPath.row].string()
         cell!.textLabel.textColor = UIColor.whiteColor()
         
         return cell
@@ -76,7 +76,8 @@ class EIRCityPickerTableViewHelper : NSObject, UITableViewDelegate, UITableViewD
     
     // City is selected
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-        cityPicker!.chosenCity = cityPicker!.cities[indexPath.row]
+        cityPicker!.chosenCity = cityPicker!.cities[indexPath.row].string()
+        cityPicker!.city = cityPicker!.cities[indexPath.row]
         cityPicker!.navigationController.popViewControllerAnimated(true)
     }
     

@@ -23,32 +23,32 @@ extension EIRPostController {
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             
             if indexPath.row == 0 {
-                var name = UITextField()
-                name.userInteractionEnabled = true
-                name.attributedPlaceholder = NSAttributedString(string: "what's your name?", attributes: [NSForegroundColorAttributeName: UIColor.lightGrayColor()])
                 
-                name.font = UIFont(name: "HelveticaNeue-Light", size: 16)
-                let textSize = name.sizeThatFits(CGSize.zeroSize)
-                name.frame = CGRectMake(sideBuffer, topBuffer, cell.frame.size.width, textSize.height)
-                name.textColor = UIColor.whiteColor()
-                name.autocorrectionType = UITextAutocorrectionType.No
-                cell.contentView.addSubview(name)
+                nameField.userInteractionEnabled = true
+                nameField.attributedPlaceholder = NSAttributedString(string: "what's your name?", attributes: [NSForegroundColorAttributeName: UIColor.lightGrayColor()])
+                
+                nameField.font = UIFont(name: "HelveticaNeue-Light", size: 16)
+                let textSize = nameField.sizeThatFits(CGSize.zeroSize)
+                nameField.frame = CGRectMake(sideBuffer, topBuffer, cell.frame.size.width, textSize.height)
+                nameField.textColor = UIColor.whiteColor()
+                nameField.autocorrectionType = UITextAutocorrectionType.No
+                cell.contentView.addSubview(nameField)
             } else {
-                var office = UILabel()
-                office.text = cityText
-                office.font = UIFont(name: "HelveticaNeue-Light", size: 16)
+                var cityField = UILabel()
+                cityField.text = cityText
+                cityField.font = UIFont(name: "HelveticaNeue-Light", size: 16)
                 
-                let textSize = office.sizeThatFits(CGSize.zeroSize)
-                office.frame = CGRectMake(sideBuffer, topBuffer, textSize.width, textSize.height)
+                let textSize = cityField.sizeThatFits(CGSize.zeroSize)
+                cityField.frame = CGRectMake(sideBuffer, topBuffer, textSize.width, textSize.height)
                 
                 if cityTextChanged {
-                    office.textColor = UIColor.whiteColor()
+                    cityField.textColor = UIColor.whiteColor()
                 } else {
-                    office.textColor = UIColor.lightGrayColor()
+                    cityField.textColor = UIColor.lightGrayColor()
                 }
                 
                 cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-                cell.contentView.addSubview(office)
+                cell.contentView.addSubview(cityField)
             }
         }
         
@@ -62,19 +62,31 @@ extension EIRPostController {
         
         if let cell = Cell  {
             
+            var role : Role = {
+                switch indexPath.row {
+                case 0:
+                    return .Management
+                case 1:
+                    return .Developer
+                default:
+                    return .Design
+                }
+            }()
+            
+            needs[role]!.transform = CGAffineTransformMakeScale(0.75, 0.75)
+            
             cell.backgroundColor = buttonColor
             cell.selectionStyle = UITableViewCellSelectionStyle.None
-            var choiceSwitch = UISwitch()
             let scale = Float(0.7)
-            choiceSwitch.transform = CGAffineTransformMakeScale(scale, scale)
-            let switchSize: CGSize = choiceSwitch.sizeThatFits(CGSize.zeroSize)
-            choiceSwitch.frame = CGRectMake(cell.bounds.size.width - switchSize.width,
+            needs[role]!.transform = CGAffineTransformMakeScale(scale, scale)
+            let switchSize: CGSize = needs[role]!.sizeThatFits(CGSize.zeroSize)
+            needs[role]!.frame = CGRectMake(cell.bounds.size.width - switchSize.width,
                 (cell.bounds.size.height - switchSize.height) / 2.0,
                 switchSize.width,
                 switchSize.height)
-            choiceSwitch.autoresizingMask = UIViewAutoresizing.FlexibleLeftMargin
-            choiceSwitch.onTintColor = lightGreen
-            cell.contentView.addSubview(choiceSwitch)
+            needs[role]!.autoresizingMask = UIViewAutoresizing.FlexibleLeftMargin
+            needs[role]!.onTintColor = lightGreen
+            cell.contentView.addSubview(needs[role]!)
             
             var label = UILabel()
             label.textColor = UIColor.whiteColor()
@@ -109,27 +121,25 @@ extension EIRPostController {
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             
             if indexPath.row == 0 {
-                var title = UITextField()
-                title.attributedPlaceholder = NSAttributedString(string: "title", attributes: [NSForegroundColorAttributeName: UIColor.lightGrayColor()])
+                postTitle.attributedPlaceholder = NSAttributedString(string: "title", attributes: [NSForegroundColorAttributeName: UIColor.lightGrayColor()])
                 
-                title.font = UIFont(name: "HelveticaNeue-Light", size: 16)
-                let textSize = title.sizeThatFits(CGSize.zeroSize)
-                title.frame = CGRectMake(sideBuffer, topBuffer, cell.frame.size.width, textSize.height)
-                title.textColor = UIColor.whiteColor()
-                title.autocorrectionType = UITextAutocorrectionType.No
-                cell.contentView.addSubview(title)
+                postTitle.font = UIFont(name: "HelveticaNeue-Light", size: 16)
+                let textSize = postTitle.sizeThatFits(CGSize.zeroSize)
+                postTitle.frame = CGRectMake(sideBuffer, topBuffer, cell.frame.size.width, textSize.height)
+                postTitle.textColor = UIColor.whiteColor()
+                postTitle.autocorrectionType = UITextAutocorrectionType.No
+                cell.contentView.addSubview(postTitle)
             } else {
-                var desc = UITextView()
-                desc.font = UIFont(name: "HelveticaNeue-Light", size: 16.0)
-                let descSize = desc.sizeThatFits(CGSize.zeroSize)
-                desc.frame = CGRectMake(0, 0, cell.frame.size.width, descHeight)
-                desc.textColor = UIColor.whiteColor()
-                desc.backgroundColor = buttonColor
+                postDesc.font = UIFont(name: "HelveticaNeue-Light", size: 16.0)
+                let descSize = postDesc.sizeThatFits(CGSize.zeroSize)
+                postDesc.frame = CGRectMake(0, 0, cell.frame.size.width, descHeight)
+                postDesc.textColor = UIColor.whiteColor()
+                postDesc.backgroundColor = buttonColor
                 
                 //hide separator
                 cell.separatorInset = UIEdgeInsets(top: 0.0, left: cell.bounds.size.width, bottom: 0.0, right: 0)
                 
-                cell.contentView.addSubview(desc)
+                cell.contentView.addSubview(postDesc)
             }
         }
         return Cell

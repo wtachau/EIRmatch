@@ -11,17 +11,13 @@ import UIKit
 
 class EIRBrowseController : UIViewController {
 
+    // keep track of "ID" buttons
+    var ButtonArray = Array<UIButton>()
+    
     var IdentifyText : UILabel?
-    var IdentifyManagement : UIButton?
-    var IdentifyDeveloper : UIButton?
-    var IdentifyDesign : UIButton?
-    
     var ChooseText : UILabel?
-    var ChooseManagement : UIButton?
-    var ChooseDeveloper : UIButton?
-    var ChooseDesign : UIButton?
     
-    var NextButton : UIButton?
+    var SubmitButton : UIButton?
     
     override func prefersStatusBarHidden() -> Bool {
         return true
@@ -56,90 +52,39 @@ class EIRBrowseController : UIViewController {
         }
         view.addSubview(ChooseText)
         
-        // Set up identify buttons
-        let buttonSize = Float(50)
-        var yOffset = Float(IdentifyText!.frame.origin.y + 40)
-        IdentifyManagement = UIButton(frame: CGRectMake((0.25 * self.view.bounds.width) - buttonSize/2, yOffset, buttonSize, buttonSize))
-        IdentifyDeveloper = UIButton(frame:CGRectMake((self.view.bounds.width - buttonSize)/2, yOffset, buttonSize, buttonSize))
-        IdentifyDesign = UIButton(frame:CGRectMake((0.75 * self.view.bounds.width) - buttonSize/2, yOffset, buttonSize, buttonSize))
-        
-        
-        // Set up identify buttons
-        yOffset = Float(ChooseText!.frame.origin.y + 40)
-        ChooseManagement = UIButton(frame: CGRectMake((0.25 * self.view.bounds.width) - buttonSize/2, yOffset, buttonSize, buttonSize))
-        ChooseDeveloper = UIButton(frame:CGRectMake((self.view.bounds.width - buttonSize)/2, yOffset , buttonSize, buttonSize))
-        ChooseDesign = UIButton(frame:CGRectMake((0.75 * self.view.bounds.width) - buttonSize/2, yOffset, buttonSize, buttonSize))
-        
         // array of buttons
-        var ButtonArray = [IdentifyManagement, IdentifyDeveloper, IdentifyDesign,
-            ChooseManagement, ChooseDeveloper, ChooseDesign]
-        
-        // customize button
-        for (index, button) in enumerate(ButtonArray) {
-            if let b = button {
-                b.layer.cornerRadius = 10
-                b.layer.masksToBounds = true
-                let padding = Float(10.0)
-                b.imageEdgeInsets = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
-                b.backgroundColor = buttonColor
-                b.addTarget(self, action: "buttonTapped:", forControlEvents: UIControlEvents.TouchUpInside)
-                switch index%3 {
-                    case 0:
-                        b.setImage(UIImage(named: "career.png"), forState: UIControlState.Normal)
-                        b.setImage(UIImage(named: "career.png"), forState: UIControlState.Highlighted)
-                    case 1:
-                        b.setImage(UIImage(named: "binary7.png"), forState: UIControlState.Normal)
-                        b.setImage(UIImage(named: "binary7.png"), forState: UIControlState.Highlighted)
-                    case 2:
-                        b.setImage(UIImage(named: "website8.png"), forState: UIControlState.Normal)
-                        b.setImage(UIImage(named: "website8.png"), forState: UIControlState.Highlighted)
-                    default:
-                        break
-                }
-            }
+        for i in 0..<6 {
+            ButtonArray.append(UIButton())
+            setUpButton(i)
+            view.addSubview(ButtonArray[i])
         }
         
         // next button
-        let nextWidth = Float(80)
-        NextButton = UIButton(frame: CGRectMake((view.bounds.width - nextWidth) / 2.0,
-                                                280, nextWidth, 40))
-        if let nextButton = NextButton {
-            nextButton.layer.cornerRadius = 10
-            nextButton.layer.masksToBounds = true
-            nextButton.setTitle("find >", forState: UIControlState.Normal)
-            nextButton.titleLabel.textColor = UIColor.whiteColor()
-            nextButton.layer.borderWidth = 2
-            nextButton.layer.borderColor = UIColor.whiteColor().CGColor
-            nextButton.addTarget(self, action: "nextButtonTapped:", forControlEvents: UIControlEvents.TouchUpInside)
-        }
-        
-        // Add all buttons
-        view.addSubview(IdentifyManagement)
-        view.addSubview(IdentifyDeveloper)
-        view.addSubview(IdentifyDesign)
-        view.addSubview(ChooseManagement)
-        view.addSubview(ChooseDeveloper)
-        view.addSubview(ChooseDesign)
-        view.addSubview(NextButton)
+        SubmitButton = setUpSubmitButton()
     }
 }
 
 extension EIRBrowseController {
     
+    // If an ID button is tapped
     func buttonTapped(button : UIButton) {
         if button.layer.borderWidth == 0 {
             button.layer.borderWidth = 2
             button.layer.borderColor = UIColor.whiteColor().CGColor
+            button.selected = true
         } else {
             button.layer.borderWidth = 0
+            button.selected = false
         }
     }
     
-    func nextButtonTapped(button : UIButton) {
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        navigationController.pushViewController(appDelegate.resultsController, animated: true)
+    // If the Submit button is tapped
+    func submitButtonTapped(button : UIButton) {
+        navigationController.popViewControllerAnimated(true)
+        for button in ButtonArray {
+            println(button.selected)
+        }
     }
-    
 }
 
 

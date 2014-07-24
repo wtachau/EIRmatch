@@ -10,7 +10,18 @@ import UIKit
 
 class EIRPostController : UITableViewController {
     
+    // Datasource and delegate
+    var postHelper : EIRPostHelper?
     
+    // Info that will be used to generate post
+    var nameField = UITextField()
+    // Also changes dynamically
+    var cityText = "which office are you in?"
+    var cityTextChanged = false
+    
+    var needs = Dictionary<Role, UISwitch>()
+    var postTitle = UITextField()
+    var postDesc = UITextView()
     
     // Used because height of description changes dynamically based on screen size
     var descHeight : Float = 0.0
@@ -19,15 +30,20 @@ class EIRPostController : UITableViewController {
     var cityPicker : EIRCityPicker?
     var cityPickerHelper : EIRCityPickerTableViewHelper?
     
-    // Also changes dynamically (todo: will be part of tableview datasource)
-    var cityText = "which office are you in?"
-    var cityTextChanged = false
-    
     let sideBuffer = Float(10)
     let topBuffer = Float(9)
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Set up delegate/datasource
+        postHelper = EIRPostHelper(postController: self)
+        tableView.dataSource = postHelper!
+        tableView.delegate = postHelper!
+        
+        needs[.Management] = UISwitch()
+        needs[.Developer] = UISwitch()
+        needs[.Design] = UISwitch()
         
         cityPicker = EIRCityPicker()
         cityPickerHelper = EIRCityPickerTableViewHelper(cityPicker: cityPicker!)
@@ -77,8 +93,28 @@ class EIRPostController : UITableViewController {
     
     func postProject(AnyObject) {
         view.endEditing(true)
-        println("done")
         
+        // get city (city enum)
+        var city : City = {
+            if let cityString = self.cityPicker!.city {
+                return cityString
+            } else {
+                return City.Other
+            }
+        }()
+        
+        // get needs (role enum: boolean)
+        var needsDict = Dictionary<Int, Bool>()
+        for (index, role) in enumerate([Role.Management, .Developer, .Design]) {
+            needsDict[role.toRaw()] = needs[role]!.on
+        }
+        
+        // Generate Post object
+        let newPost = EIRPost(name: nameField.text, city: city, needs: needsDict, title: postTitle.text, description: postDesc.text)
+        postSaver.save(newPost)
+        
+        // Go back
+        navigationController.popViewControllerAnimated(true)
     }
     
     override func prefersStatusBarHidden() -> Bool {
