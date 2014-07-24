@@ -10,6 +10,7 @@ import UIKit
 
 class EIRPostHelper : NSObject , UITableViewDataSource, UITableViewDelegate {
     
+    // Keep track of postController this is helping
     var postController : EIRPostController?
     
     init(postController : EIRPostController) {
@@ -20,12 +21,9 @@ class EIRPostHelper : NSObject , UITableViewDataSource, UITableViewDelegate {
     
     // Number of rows per section
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            return 2
-        case 1:
+        if section == 1 {
             return 3
-        default:
+        } else {
             return 2
         }
     }
@@ -56,7 +54,7 @@ class EIRPostHelper : NSObject , UITableViewDataSource, UITableViewDelegate {
         case 0:
             return "about you"
         case 1:
-            return "what do you need?"
+            return "who do you need?"
         default:
             return "about your project:"
         }

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B80FFF91197F5E5300D4A5D8 /* EIRPostTextDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80FFF90197F5E5300D4A5D8 /* EIRPostTextDelegate.swift */; };
+		B814D5981981BA2D008587A3 /* EIRBrowseButtonFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B814D5971981BA2D008587A3 /* EIRBrowseButtonFormatter.swift */; };
 		B85DC837197D99F400E02452 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DC836197D99F400E02452 /* AppDelegate.swift */; };
 		B85DC83C197D99F400E02452 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B85DC83A197D99F400E02452 /* Main.storyboard */; };
 		B85DC83E197D99F400E02452 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B85DC83D197D99F400E02452 /* Images.xcassets */; };
@@ -17,7 +17,6 @@
 		B85DC85B197DC77200E02452 /* binary7.png in Resources */ = {isa = PBXBuildFile; fileRef = B85DC858197DC77200E02452 /* binary7.png */; };
 		B85DC85C197DC77200E02452 /* career.png in Resources */ = {isa = PBXBuildFile; fileRef = B85DC859197DC77200E02452 /* career.png */; };
 		B85DC85D197DC77200E02452 /* website8.png in Resources */ = {isa = PBXBuildFile; fileRef = B85DC85A197DC77200E02452 /* website8.png */; };
-		B85DC861197DD04B00E02452 /* EIRResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DC860197DD04B00E02452 /* EIRResultsController.swift */; };
 		B85DC863197DD77000E02452 /* EIRHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DC862197DD77000E02452 /* EIRHomeController.swift */; };
 		B85DC865197EC6D700E02452 /* EIRPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DC864197EC6D700E02452 /* EIRPostController.swift */; };
 		B85DC86B197EDAFB00E02452 /* EIRShowAllController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DC86A197EDAFB00E02452 /* EIRShowAllController.swift */; };
@@ -25,9 +24,23 @@
 		B85DC873197F068900E02452 /* EIRCityPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DC872197F068900E02452 /* EIRCityPicker.swift */; };
 		B85DC875197F069500E02452 /* EIRCityPickerTableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DC874197F069500E02452 /* EIRCityPickerTableViewHelper.swift */; };
 		B85DC877197F081000E02452 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DC876197F081000E02452 /* ViewController.swift */; };
+		B86B75F61981963900ECDACE /* EIRMatch.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = B86B75F51981963900ECDACE /* EIRMatch.entitlements */; };
 		B89EE056197F2C6D002F4FF4 /* EIRShowAllTableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89EE055197F2C6D002F4FF4 /* EIRShowAllTableViewHelper.swift */; };
 		B8FFC98C1980218500372EA7 /* EIRPostHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FFC98B1980218500372EA7 /* EIRPostHelper.swift */; };
 		B8FFC98E198021D000372EA7 /* EIRPostCellFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FFC98D198021D000372EA7 /* EIRPostCellFormatter.swift */; };
+		B8FFC9901980307D00372EA7 /* EIRPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FFC98F1980307D00372EA7 /* EIRPost.swift */; };
+		B8FFC9951980680F00372EA7 /* EIRPostSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FFC9941980680F00372EA7 /* EIRPostSaver.swift */; };
+		B8FFCA14198092DF00372EA7 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8FFCA13198092DF00372EA7 /* Parse.framework */; };
+		B8FFCA16198092E900372EA7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8FFCA15198092E900372EA7 /* AudioToolbox.framework */; };
+		B8FFCA18198092F000372EA7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8FFCA17198092F000372EA7 /* CFNetwork.framework */; };
+		B8FFCA1A198092F700372EA7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8FFCA19198092F700372EA7 /* CoreGraphics.framework */; };
+		B8FFCA1C198092FD00372EA7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8FFCA1B198092FD00372EA7 /* CoreLocation.framework */; };
+		B8FFCA1E1980930300372EA7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B8FFCA1D1980930300372EA7 /* libz.dylib */; };
+		B8FFCA201980930B00372EA7 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8FFCA1F1980930B00372EA7 /* MobileCoreServices.framework */; };
+		B8FFCA221980931100372EA7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8FFCA211980931100372EA7 /* QuartzCore.framework */; };
+		B8FFCA241980931700372EA7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8FFCA231980931700372EA7 /* Security.framework */; };
+		B8FFCA281980932500372EA7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8FFCA271980932500372EA7 /* SystemConfiguration.framework */; };
+		B8FFCA2A19817DB700372EA7 /* EIRPostLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FFCA2919817DB700372EA7 /* EIRPostLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B80FFF90197F5E5300D4A5D8 /* EIRPostTextDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRPostTextDelegate.swift; sourceTree = "<group>"; };
+		B814D5971981BA2D008587A3 /* EIRBrowseButtonFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRBrowseButtonFormatter.swift; sourceTree = "<group>"; };
 		B85DC831197D99F400E02452 /* EIRMatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EIRMatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B85DC835197D99F400E02452 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B85DC836197D99F400E02452 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -55,7 +68,6 @@
 		B85DC858197DC77200E02452 /* binary7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = binary7.png; sourceTree = "<group>"; };
 		B85DC859197DC77200E02452 /* career.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = career.png; sourceTree = "<group>"; };
 		B85DC85A197DC77200E02452 /* website8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = website8.png; sourceTree = "<group>"; };
-		B85DC860197DD04B00E02452 /* EIRResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRResultsController.swift; sourceTree = "<group>"; };
 		B85DC862197DD77000E02452 /* EIRHomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRHomeController.swift; sourceTree = "<group>"; };
 		B85DC864197EC6D700E02452 /* EIRPostController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRPostController.swift; sourceTree = "<group>"; };
 		B85DC86A197EDAFB00E02452 /* EIRShowAllController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRShowAllController.swift; sourceTree = "<group>"; };
@@ -63,9 +75,24 @@
 		B85DC872197F068900E02452 /* EIRCityPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRCityPicker.swift; sourceTree = "<group>"; };
 		B85DC874197F069500E02452 /* EIRCityPickerTableViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRCityPickerTableViewHelper.swift; sourceTree = "<group>"; };
 		B85DC876197F081000E02452 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B86B75F51981963900ECDACE /* EIRMatch.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = EIRMatch.entitlements; path = EIRMatch/EIRMatch.entitlements; sourceTree = "<group>"; };
 		B89EE055197F2C6D002F4FF4 /* EIRShowAllTableViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRShowAllTableViewHelper.swift; sourceTree = "<group>"; };
 		B8FFC98B1980218500372EA7 /* EIRPostHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRPostHelper.swift; sourceTree = "<group>"; };
 		B8FFC98D198021D000372EA7 /* EIRPostCellFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRPostCellFormatter.swift; sourceTree = "<group>"; };
+		B8FFC98F1980307D00372EA7 /* EIRPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRPost.swift; sourceTree = "<group>"; };
+		B8FFC9941980680F00372EA7 /* EIRPostSaver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EIRPostSaver.swift; path = ../EIRPostSaver.swift; sourceTree = "<group>"; };
+		B8FFCA101980927E00372EA7 /* EIRMatch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EIRMatch-Bridging-Header.h"; sourceTree = "<group>"; };
+		B8FFCA13198092DF00372EA7 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		B8FFCA15198092E900372EA7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		B8FFCA17198092F000372EA7 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		B8FFCA19198092F700372EA7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B8FFCA1B198092FD00372EA7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		B8FFCA1D1980930300372EA7 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		B8FFCA1F1980930B00372EA7 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		B8FFCA211980931100372EA7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		B8FFCA231980931700372EA7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		B8FFCA271980932500372EA7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		B8FFCA2919817DB700372EA7 /* EIRPostLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRPostLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +100,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8FFCA281980932500372EA7 /* SystemConfiguration.framework in Frameworks */,
+				B8FFCA241980931700372EA7 /* Security.framework in Frameworks */,
+				B8FFCA221980931100372EA7 /* QuartzCore.framework in Frameworks */,
+				B8FFCA201980930B00372EA7 /* MobileCoreServices.framework in Frameworks */,
+				B8FFCA1E1980930300372EA7 /* libz.dylib in Frameworks */,
+				B8FFCA1C198092FD00372EA7 /* CoreLocation.framework in Frameworks */,
+				B8FFCA1A198092F700372EA7 /* CoreGraphics.framework in Frameworks */,
+				B8FFCA18198092F000372EA7 /* CFNetwork.framework in Frameworks */,
+				B8FFCA16198092E900372EA7 /* AudioToolbox.framework in Frameworks */,
+				B8FFCA14198092DF00372EA7 /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,11 +126,23 @@
 		B85DC828197D99F300E02452 = {
 			isa = PBXGroup;
 			children = (
+				B86B75F51981963900ECDACE /* EIRMatch.entitlements */,
+				B8FFCA271980932500372EA7 /* SystemConfiguration.framework */,
+				B8FFCA231980931700372EA7 /* Security.framework */,
+				B8FFCA211980931100372EA7 /* QuartzCore.framework */,
+				B8FFCA1F1980930B00372EA7 /* MobileCoreServices.framework */,
+				B8FFCA1D1980930300372EA7 /* libz.dylib */,
+				B8FFCA1B198092FD00372EA7 /* CoreLocation.framework */,
+				B8FFCA19198092F700372EA7 /* CoreGraphics.framework */,
+				B8FFCA17198092F000372EA7 /* CFNetwork.framework */,
+				B8FFCA15198092E900372EA7 /* AudioToolbox.framework */,
+				B8FFCA13198092DF00372EA7 /* Parse.framework */,
 				B85DC86C197EFAE400E02452 /* View.xib */,
 				B85DC857197DC77200E02452 /* Resources */,
 				B85DC833197D99F400E02452 /* EIRMatch */,
 				B85DC846197D99F400E02452 /* EIRMatchTests */,
 				B85DC832197D99F400E02452 /* Products */,
+				B8FFCA101980927E00372EA7 /* EIRMatch-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -112,6 +161,9 @@
 				B85DC876197F081000E02452 /* ViewController.swift */,
 				B85DC855197DA11400E02452 /* EIRSystemResources.swift */,
 				B85DC836197D99F400E02452 /* AppDelegate.swift */,
+				B8FFC98F1980307D00372EA7 /* EIRPost.swift */,
+				B8FFC9941980680F00372EA7 /* EIRPostSaver.swift */,
+				B8FFCA2919817DB700372EA7 /* EIRPostLoader.swift */,
 				B85DC86E197F061300E02452 /* MainMenu */,
 				B85DC83A197D99F400E02452 /* Main.storyboard */,
 				B85DC83D197D99F400E02452 /* Images.xcassets */,
@@ -170,7 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				B85DC853197D9C7D00E02452 /* EIRBrowseController.swift */,
-				B85DC860197DD04B00E02452 /* EIRResultsController.swift */,
+				B814D5971981BA2D008587A3 /* EIRBrowseButtonFormatter.swift */,
 			);
 			name = Browse;
 			sourceTree = "<group>";
@@ -190,7 +242,6 @@
 				B85DC864197EC6D700E02452 /* EIRPostController.swift */,
 				B8FFC98B1980218500372EA7 /* EIRPostHelper.swift */,
 				B8FFC98D198021D000372EA7 /* EIRPostCellFormatter.swift */,
-				B80FFF90197F5E5300D4A5D8 /* EIRPostTextDelegate.swift */,
 				B85DC872197F068900E02452 /* EIRCityPicker.swift */,
 				B85DC874197F069500E02452 /* EIRCityPickerTableViewHelper.swift */,
 			);
@@ -246,6 +297,15 @@
 				TargetAttributes = {
 					B85DC830197D99F400E02452 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = T36TW74SZ5;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
 					};
 					B85DC842197D99F400E02452 = {
 						CreatedOnToolsVersion = 6.0;
@@ -279,6 +339,7 @@
 			files = (
 				B85DC83C197D99F400E02452 /* Main.storyboard in Resources */,
 				B85DC85B197DC77200E02452 /* binary7.png in Resources */,
+				B86B75F61981963900ECDACE /* EIRMatch.entitlements in Resources */,
 				B85DC83E197D99F400E02452 /* Images.xcassets in Resources */,
 				B85DC85D197DC77200E02452 /* website8.png in Resources */,
 				B85DC86D197EFAE400E02452 /* View.xib in Resources */,
@@ -300,15 +361,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8FFC9901980307D00372EA7 /* EIRPost.swift in Sources */,
 				B85DC877197F081000E02452 /* ViewController.swift in Sources */,
 				B8FFC98E198021D000372EA7 /* EIRPostCellFormatter.swift in Sources */,
-				B85DC861197DD04B00E02452 /* EIRResultsController.swift in Sources */,
-				B80FFF91197F5E5300D4A5D8 /* EIRPostTextDelegate.swift in Sources */,
+				B8FFC9951980680F00372EA7 /* EIRPostSaver.swift in Sources */,
 				B85DC875197F069500E02452 /* EIRCityPickerTableViewHelper.swift in Sources */,
+				B8FFCA2A19817DB700372EA7 /* EIRPostLoader.swift in Sources */,
 				B85DC854197D9C7D00E02452 /* EIRBrowseController.swift in Sources */,
 				B85DC86B197EDAFB00E02452 /* EIRShowAllController.swift in Sources */,
 				B85DC863197DD77000E02452 /* EIRHomeController.swift in Sources */,
 				B85DC837197D99F400E02452 /* AppDelegate.swift in Sources */,
+				B814D5981981BA2D008587A3 /* EIRBrowseButtonFormatter.swift in Sources */,
 				B8FFC98C1980218500372EA7 /* EIRPostHelper.swift in Sources */,
 				B89EE056197F2C6D002F4FF4 /* EIRShowAllTableViewHelper.swift in Sources */,
 				B85DC873197F068900E02452 /* EIRCityPicker.swift in Sources */,
@@ -430,9 +493,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = EIRMatch/EIRMatch.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = EIRMatch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "EIRMatch-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -443,9 +515,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = EIRMatch/EIRMatch.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = EIRMatch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "EIRMatch-Bridging-Header.h";
 			};
 			name = Release;
 		};

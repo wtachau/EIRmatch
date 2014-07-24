@@ -7,43 +7,38 @@
 //
 
 import UIKit
+import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
                             
     var window: UIWindow?
+    
     // set up relevant view controllers
     var navigationController: UINavigationController?
     var homeController : EIRHomeController?
     
     var browseController : EIRBrowseController?
     
-    var resultsController : EIRResultsController?
-    
     var postController : EIRPostController?
-    var postHelper : EIRPostHelper?
     
     var showAllController : EIRShowAllController?
-    var showAllHelper : EIRShowAllTableViewHelper?
-
 
     func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
+        
+        //set up Parse
+        Parse.setApplicationId("wb6OU1sqWT9vq78k7Pr2AW60ziY2IaUkg4aoJrwe", clientKey: "Dxa09Mny6GHFrcHEyFKqqswd0lCJwvhf5E8IXKUM")
+        
+        PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
 
         // Init view controllers
         homeController = EIRHomeController()
         
         browseController = EIRBrowseController()
         
-        resultsController = EIRResultsController()
-        
         postController = EIRPostController()
-        postHelper = EIRPostHelper(postController: postController!)
-        postController!.tableView.dataSource = postHelper!
-        postController!.tableView.delegate = postHelper!
         
         showAllController = EIRShowAllController()
-        showAllHelper = EIRShowAllTableViewHelper()
-        showAllController!.tableView.dataSource = showAllHelper!
         
         navigationController = UINavigationController(rootViewController: homeController)
         
@@ -64,24 +59,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
     }
-
+    
     func applicationDidEnterBackground(application: UIApplication!) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
-
+    
     func applicationWillEnterForeground(application: UIApplication!) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     }
-
+    
     func applicationDidBecomeActive(application: UIApplication!) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
-
+    
     func applicationWillTerminate(application: UIApplication!) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
-
