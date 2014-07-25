@@ -10,18 +10,45 @@ import UIKit
 
 class EIRShowAllTableViewHelper : NSObject, UITableViewDataSource {
     
+    var allPosts = Array<PFObject>()
+    // store reload function of the UITableView for which this is a datasource
+    var reloadFunc: () -> () = {}
     
-    init() {
+    // actual set the reload function
+    func setReload(reload:(()->())) {
+        self.reloadFunc = reload
     }
     
+    // Tell PostLoader (server connection) to get all new posts
+    func refreshPosts() {
+        postLoader.loadAllPosts(setAllPosts)
+    }
+    
+    // Update datasource with new posts, and reload UITableView
+    func setAllPosts(posts: [AnyObject]) -> () {
+        allPosts = []
+        for object in posts {
+            if let post = object as? PFObject {
+                allPosts.append(post)
+            }
+        }
+        reloadFunc()
+    }
+    
+    
+    // UITableViewDataSource functions
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return allPosts.count
     }
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         let cell = UITableViewCell(style: UITableViewCellStyle.Value2, reuseIdentifier: nil)
 
-        cell.textLabel.text = "hello"
+        if let nameText = allPosts[indexPath.row].objectForKey("name") as? String {
+            cell.textLabel.text = nameText
+            cell.textLabel.textColor = UIColor.whiteColor()
+        }
+        cell.backgroundColor = backgroundColor
         return cell
     }
 }

@@ -25,3 +25,50 @@ let lightBlue = UIColorFromRGB(62, 152, 248)
 let lightGreen = UIColorFromRGB(49, 242, 149)
 let lightPurple = UIColorFromRGB(84, 24, 242)
 
+let navBarHeight = CGFloat(64)
+
+var postSaver = EIRPostSaver()
+var postLoader = EIRPostLoader()
+
+enum City : Int {
+    case SanFrancisco = 1
+    case NewYork
+    case LosAngeles
+    case Sunnyvale
+    case LasVegas
+    case OrangeCounty
+    case Other
+    func string() -> String {
+        switch self {
+        case .SanFrancisco:
+            return "San Francisco"
+        case .NewYork:
+            return "New York"
+        case .LosAngeles:
+            return "Los Angeles"
+        case .Sunnyvale:
+            return "Sunnyvale"
+        case .LasVegas:
+            return "Las Vegas"
+        case .OrangeCounty:
+            return "Orange County"
+        case .Other:
+            return "Other"
+        }
+    }
+}
+
+enum Role : Int {
+    case Management = 1, Developer, Design
+    func string() -> String {
+        switch self {
+        case .Management:
+            return "Management"
+        case .Developer:
+            return "Developer"
+        case .Design:
+            return "Design"
+        }
+    }
+}
+

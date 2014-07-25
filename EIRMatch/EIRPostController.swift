@@ -8,29 +8,42 @@
 
 import UIKit
 
-class EIRPostController : UITableViewController, UITableViewDelegate, UITableViewDataSource {
+class EIRPostController : UITableViewController {
     
+    // Datasource and delegate
+    var postHelper : EIRPostHelper?
     
+    // Info that will be used to generate post
+    var nameField = UITextField()
+    // Also changes dynamically
+    var cityText = "which office are you in?"
+    var cityTextChanged = false
+    
+    var needs = Dictionary<Role, UISwitch>()
+    var postTitle = UITextField()
+    var postDesc = UITextView()
     
     // Used because height of description changes dynamically based on screen size
-    var descHeight : Float = 0.0
+    var descHeight : CGFloat = 0.0
     
     // City name class and delegate
     var cityPicker : EIRCityPicker?
     var cityPickerHelper : EIRCityPickerTableViewHelper?
     
-    // Text view delegate
-    var textDelegate : EIRPostTextDelegate?
+    let sideBuffer = CGFloat(10)
+    let topBuffer = CGFloat(9)
     
-    // Also changes dynamically (todo: will be part of tableview datasource)
-    var cityText = "which office are you in?"
-    var cityTextChanged = false
-    
-    let sideBuffer = Float(10)
-    let topBuffer = Float(9)
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Set up delegate/datasource
+        postHelper = EIRPostHelper(postController: self)
+        tableView.dataSource = postHelper!
+        tableView.delegate = postHelper!
+        
+        needs[.Management] = UISwitch()
+        needs[.Developer] = UISwitch()
+        needs[.Design] = UISwitch()
         
         cityPicker = EIRCityPicker()
         cityPickerHelper = EIRCityPickerTableViewHelper(cityPicker: cityPicker!)
@@ -38,9 +51,6 @@ class EIRPostController : UITableViewController, UITableViewDelegate, UITableVie
         // set up city picker classes
         cityPicker!.tableView.delegate = cityPickerHelper!
         cityPicker!.tableView.dataSource = cityPickerHelper!
-        
-        // set up text view delegate
-        textDelegate = EIRPostTextDelegate(postController: self)
         
         // format the bottom of the table
         tableView.tableFooterView = UIView(frame: CGRect.zeroRect)
@@ -53,7 +63,7 @@ class EIRPostController : UITableViewController, UITableViewDelegate, UITableVie
         // calculate height so bottom cell fills screen
         self.descHeight = view.bounds.size.height
                         - tableView.rectForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 2)).origin.y
-                        - navigationController.navigationBar.bounds.size.height
+                        - navBarHeight
         
         // add "done" button to upper right
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done,
@@ -69,7 +79,7 @@ class EIRPostController : UITableViewController, UITableViewDelegate, UITableVie
         if !indexPath {
             view.endEditing(true)
         } else if (indexPath.row == 1 && indexPath.section == 2)
-            || (indexPath.section == 0 && indexPath.row == 1) { // todo needs to clear even when header selected
+            || (indexPath.section == 0 && indexPath.row == 1) {
             recognizer.cancelsTouchesInView = false
         } else {
             view.endEditing(true)
@@ -82,8 +92,29 @@ class EIRPostController : UITableViewController, UITableViewDelegate, UITableVie
     }
     
     func postProject(AnyObject) {
-        println("done")
+        view.endEditing(true)
         
+        // get city (city enum)
+        var city : City = {
+            if let cityString = self.cityPicker!.city {
+                return cityString
+            } else {
+                return City.Other
+            }
+        }()
+        
+        // get needs (role enum: boolean)
+        var needsDict = Dictionary<Int, Bool>()
+        for (index, role) in enumerate([Role.Management, .Developer, .Design]) {
+            needsDict[role.toRaw()] = needs[role]!.on
+        }
+        
+        // Generate Post object
+        let newPost = EIRPost(name: nameField.text, city: city, needs: needsDict, title: postTitle.text, description: postDesc.text)
+        postSaver.save(newPost)
+        
+        // Go back
+        navigationController.popViewControllerAnimated(true)
     }
     
     override func prefersStatusBarHidden() -> Bool {
@@ -92,237 +123,8 @@ class EIRPostController : UITableViewController, UITableViewDelegate, UITableVie
     
 }
 
-extension EIRPostController {
-    
-    // Number of rows per section
-    override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            return 2
-        case 1:
-            return 3
-        default:
-            return 2
-        }
-    }
-    
-    // Number of sections
-    override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
-        return 3
-    }
-    
-    
-    // Set background color
-    override func tableView(tableView: UITableView!, willDisplayHeaderView view: UIView!, forSection section: Int) {
-        if let header = view as? UITableViewHeaderFooterView {
-            header.contentView.backgroundColor = backgroundColor
-            header.textLabel.textColor = UIColor.whiteColor()
-            header.textLabel.font = UIFont(name: "HelveticaNeue-Light", size: 18)
-        }
-    }
-    
-    // Set heights for each header
-    override func tableView(tableView: UITableView!, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40.0
-    }
-    
-    // Header titles
-    override func tableView(tableView: UITableView!, titleForHeaderInSection section: Int) -> String! {
-        switch section {
-        case 0:
-            return "about you"
-        case 1:
-            return "what do you need?"
-        default:
-            return "about your project:"
-        }
-    }
-    
-    // Set height of cells
-    override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
-        let normal = Float(36)
-        
-        switch indexPath.section {
-        case 0, 1:
-            return normal
-        default:
-            if indexPath.row == 0 {
-                return normal
-            } else {
-                return descHeight
-            }
-        }
-    }
-    
-    
-    // If office cell is selected
-    override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-        if indexPath.section == 0 && indexPath.row == 1 {
-            //todo separate into delegates
-            navigationController.pushViewController(cityPicker, animated: true)
-            cityTextChanged = true
-        }
-    }
-    
-    // Customize each cell
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        var Cell : UITableViewCell?
-        
-        switch indexPath.section {
-            
-        // Name and Office
-        case 0:
-            Cell = setUpTopCell(indexPath)
-            
-        // What Do You Need?
-        case 1:
-            Cell = setUpMidCell(indexPath)
-            
-        // About your project
-        default:
-            Cell = setUpDescCell(indexPath)
-            
-        }
-        Cell!.userInteractionEnabled = true
-        return Cell
-    }
-}
 
 
-
-// Set up cells
-extension EIRPostController {
-    
-    // Get the middle cells in the Post view controller
-    func setUpTopCell(indexPath: NSIndexPath) -> UITableViewCell! {
-        var Cell : UITableViewCell?
-        Cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
-    
-        // Customize cell
-        if let cell = Cell  {
-            
-            cell.backgroundColor = buttonColor
-            cell.selectionStyle = UITableViewCellSelectionStyle.None
-            
-            if indexPath.row == 0 {
-                var name = UITextField()
-                name.userInteractionEnabled = true
-                name.attributedPlaceholder = NSAttributedString(string: "what's your name?", attributes: [NSForegroundColorAttributeName: UIColor.lightGrayColor()])
-                
-                name.font = UIFont(name: "HelveticaNeue-Light", size: 16)
-                let textSize = name.sizeThatFits(CGSize.zeroSize)
-                name.frame = CGRectMake(sideBuffer, topBuffer, cell.frame.size.width, textSize.height)
-                name.textColor = UIColor.whiteColor()
-                name.autocorrectionType = UITextAutocorrectionType.No
-                cell.contentView.addSubview(name)
-            } else {
-                var office = UILabel()
-                office.text = cityText
-                office.font = UIFont(name: "HelveticaNeue-Light", size: 16)
-                
-                let textSize = office.sizeThatFits(CGSize.zeroSize)
-                office.frame = CGRectMake(sideBuffer, topBuffer, textSize.width, textSize.height)
-                
-                if cityTextChanged {
-                    office.textColor = UIColor.whiteColor()
-                } else {
-                    office.textColor = UIColor.lightGrayColor()
-                }
-                
-                cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-                cell.contentView.addSubview(office)
-            }
-        }
-        
-        return Cell
-    }
-    
-    // Get the middle cells in the Post view controller
-    func setUpMidCell(indexPath: NSIndexPath) -> UITableViewCell! {
-        var Cell : UITableViewCell?
-        Cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
-        
-        if let cell = Cell  {
-            
-            cell.backgroundColor = buttonColor
-            cell.selectionStyle = UITableViewCellSelectionStyle.None
-            var choiceSwitch = UISwitch()
-            let scale = Float(0.7)
-            choiceSwitch.transform = CGAffineTransformMakeScale(scale, scale)
-            let switchSize: CGSize = choiceSwitch.sizeThatFits(CGSize.zeroSize)
-            choiceSwitch.frame = CGRectMake(cell.bounds.size.width - switchSize.width,
-                (cell.bounds.size.height - switchSize.height) / 2.0,
-                switchSize.width,
-                switchSize.height)
-            choiceSwitch.autoresizingMask = UIViewAutoresizing.FlexibleLeftMargin
-            choiceSwitch.onTintColor = lightGreen
-            cell.contentView.addSubview(choiceSwitch)
-            
-            var label = UILabel()
-            label.textColor = UIColor.whiteColor()
-            label.font = UIFont(name: "HelveticaNeue-Light", size: 16)
-            switch indexPath.row {
-            case 0:
-                label.text = "management"
-            case 1:
-                label.text = "developers"
-            default:
-                label.text = "designers"
-            }
-            let labelSize = label.sizeThatFits(CGSize.zeroSize)
-            label.frame = CGRectMake(sideBuffer, topBuffer, labelSize.width, labelSize.height)
-            cell.contentView.addSubview(label)
-        }
-        return Cell
-    }
-    
-    
-    // Get the bottom most cells in the Post view controller
-    func setUpDescCell(indexPath: NSIndexPath) -> UITableViewCell! {
-        
-        var Cell : UITableViewCell?
-        
-        Cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
-        
-        // Customize cell
-        if let cell = Cell  {
-            
-            cell.backgroundColor = buttonColor
-            cell.selectionStyle = UITableViewCellSelectionStyle.None
-            
-            if indexPath.row == 0 {
-                var title = UITextField()
-                title.attributedPlaceholder = NSAttributedString(string: "title", attributes: [NSForegroundColorAttributeName: UIColor.lightGrayColor()])
-                
-                title.font = UIFont(name: "HelveticaNeue-Light", size: 16)
-                let textSize = title.sizeThatFits(CGSize.zeroSize)
-                title.frame = CGRectMake(sideBuffer, topBuffer, cell.frame.size.width, textSize.height)
-                title.textColor = UIColor.whiteColor()
-                title.autocorrectionType = UITextAutocorrectionType.No
-                cell.contentView.addSubview(title)
-            } else {
-                var desc = UITextView()
-                desc.font = UIFont(name: "HelveticaNeue-Light", size: 16.0)
-                let descSize = desc.sizeThatFits(CGSize.zeroSize)
-                desc.frame = CGRectMake(0, 0, cell.frame.size.width, descHeight)
-                desc.textColor = UIColor.whiteColor()
-                desc.backgroundColor = buttonColor
-                
-                // Done button that calls delegate method
-                
-                desc.delegate = textDelegate!
-                desc.returnKeyType = UIReturnKeyType.Done
-                
-                //hide separator
-                cell.separatorInset = UIEdgeInsets(top: 0.0, left: cell.bounds.size.width, bottom: 0.0, right: 0)
-                
-                cell.contentView.addSubview(desc)
-            }
-        }
-        return Cell
-    }
-    
-}
 
 
 

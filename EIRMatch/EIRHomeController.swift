@@ -24,8 +24,8 @@ class EIRHomeController : ViewController {
         
         view.backgroundColor = backgroundColor
         
-        let buttonWidth = Float(80)
-        let buttonHeight = Float(40)
+        let buttonWidth = CGFloat(80)
+        let buttonHeight = CGFloat(40)
         
         // Initialize buttons
         BrowseButton = UIButton(frame: CGRectMake((view.bounds.width - buttonWidth)/2,

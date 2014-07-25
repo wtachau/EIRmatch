@@ -29,12 +29,12 @@ class EIRCityPickerTableViewHelper : NSObject, UITableViewDelegate, UITableViewD
     
     // Height of header, adjusted
     func tableView(tableView: UITableView!, heightForHeaderInSection section: Int) -> CGFloat {
-        return (cityPicker!.totalHeight! - Float(cityPicker!.cities.count) * cityPicker!.cellHeight) / 2.0 - 1.5*cityPicker!.navBarHeight!
+        return (cityPicker!.totalHeight! - CGFloat(cityPicker!.cities.count) * cityPicker!.cellHeight) / 2.0 - 1.5 * navBarHeight
     }
     
     // Height of footer, adjusted
     func tableView(tableView: UITableView!, heightForFooterInSection section: Int) -> CGFloat {
-        return (cityPicker!.totalHeight! - Float(cityPicker!.cities.count) * cityPicker!.cellHeight) / 2.0 - cityPicker!.navBarHeight!/2.0
+        return (cityPicker!.totalHeight! - CGFloat(cityPicker!.cities.count) * cityPicker!.cellHeight) / 2.0 - navBarHeight/2.0
     }
     
     // Height of each row
@@ -55,7 +55,7 @@ class EIRCityPickerTableViewHelper : NSObject, UITableViewDelegate, UITableViewD
         
         cell!.backgroundColor = buttonColor
         cell!.textLabel.font = UIFont(name: "HelveticaNeue-Light", size: 16.0)
-        cell!.textLabel.text = cityPicker!.cities[indexPath.row]
+        cell!.textLabel.text = cityPicker!.cities[indexPath.row].string()
         cell!.textLabel.textColor = UIColor.whiteColor()
         
         return cell
@@ -76,7 +76,8 @@ class EIRCityPickerTableViewHelper : NSObject, UITableViewDelegate, UITableViewD
     
     // City is selected
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-        cityPicker!.chosenCity = cityPicker!.cities[indexPath.row]
+        cityPicker!.chosenCity = cityPicker!.cities[indexPath.row].string()
+        cityPicker!.city = cityPicker!.cities[indexPath.row]
         cityPicker!.navigationController.popViewControllerAnimated(true)
     }
     
