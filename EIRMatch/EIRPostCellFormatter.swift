@@ -77,7 +77,7 @@ extension EIRPostController {
             
             cell.backgroundColor = buttonColor
             cell.selectionStyle = UITableViewCellSelectionStyle.None
-            let scale = Float(0.7)
+            let scale = CGFloat(0.7)
             needs[role]!.transform = CGAffineTransformMakeScale(scale, scale)
             let switchSize: CGSize = needs[role]!.sizeThatFits(CGSize.zeroSize)
             needs[role]!.frame = CGRectMake(cell.bounds.size.width - switchSize.width,

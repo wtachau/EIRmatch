@@ -62,7 +62,7 @@ class EIRPostHelper : NSObject , UITableViewDataSource, UITableViewDelegate {
     
     // Set height of cells
     func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
-        let normal = Float(36)
+        let normal = CGFloat(36)
         
         switch indexPath.section {
         case 0, 1:

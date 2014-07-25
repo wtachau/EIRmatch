@@ -24,14 +24,14 @@ class EIRPostController : UITableViewController {
     var postDesc = UITextView()
     
     // Used because height of description changes dynamically based on screen size
-    var descHeight : Float = 0.0
+    var descHeight : CGFloat = 0.0
     
     // City name class and delegate
     var cityPicker : EIRCityPicker?
     var cityPickerHelper : EIRCityPickerTableViewHelper?
     
-    let sideBuffer = Float(10)
-    let topBuffer = Float(9)
+    let sideBuffer = CGFloat(10)
+    let topBuffer = CGFloat(9)
     
     override func viewDidLoad() {
         super.viewDidLoad()
