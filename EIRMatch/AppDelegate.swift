@@ -14,14 +14,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             
     var window: UIWindow?
     
+    // The current user
+    var currentUser : PFUser?
+    
     // set up relevant view controllers
     var navigationController: UINavigationController?
     var homeController : EIRHomeController?
     
-    var browseController : EIRBrowseController?
-    
+    var detailsController : EIRPersonDetailsController?
     var postController : EIRPostController?
-    
     var showAllController : EIRShowAllController?
 
     func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
@@ -34,25 +35,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Init view controllers
         homeController = EIRHomeController()
         
-        browseController = EIRBrowseController()
         
+        detailsController = EIRPersonDetailsController()
         postController = EIRPostController()
-        
         showAllController = EIRShowAllController()
         
-        navigationController = UINavigationController(rootViewController: homeController)
-        
-        if let navBar = navigationController?.navigationBar {
-            navBar.barTintColor = backgroundColor
-            navBar.translucent = false
-            navBar.tintColor = UIColor.whiteColor()
-            navBar.titleTextAttributes = NSDictionary(dictionary: [UIColor.whiteColor():NSForegroundColorAttributeName])
-        }
-        
-        self.window!.rootViewController = navigationController
+        myMethod()
         
         return true
         
+    }
+    
+    
+    // TODO: Remove
+    func myMethod() {
+        var user = PFUser()
+        user.username = "Will Tachau"
+        user.password = "myPassword"
+        user.email = "email@example.com"
+        // other fields can be set just like with PFObject
+        user["phone"] = "415-392-0202"
+        
+        user.signUpInBackgroundWithBlock {
+            (succeeded: Bool!, error: NSError!) -> Void in
+            if !error {
+                println("login success")
+                
+                self.currentUser = user
+                
+                self.navigationController = UINavigationController(rootViewController: self.homeController)
+                if let navBar = self.navigationController?.navigationBar {
+                    navBar.barTintColor = backgroundColor
+                    navBar.translucent = false
+                    navBar.tintColor = UIColor.whiteColor()
+                    navBar.titleTextAttributes = NSDictionary(dictionary: [UIColor.whiteColor():NSForegroundColorAttributeName])
+                }
+                
+                self.window!.rootViewController = self.navigationController
+            } else {
+                let errorString = error.userInfo["error"] as NSString
+                // Show the errorString somewhere and let the user try again.
+            }
+        }
     }
 
     func applicationWillResignActive(application: UIApplication!) {

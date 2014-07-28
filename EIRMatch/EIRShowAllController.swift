@@ -21,6 +21,7 @@ class EIRShowAllController: UITableViewController {
         showAllHelper = EIRShowAllTableViewHelper()
         if let helper = showAllHelper {
             self.tableView.dataSource = helper
+            self.tableView.delegate = helper
             helper.setReload(reload)
             helper.refreshPosts()
         }
@@ -31,9 +32,9 @@ class EIRShowAllController: UITableViewController {
         refreshControl = refresher
     }
     
-    override func prefersStatusBarHidden() -> Bool {
-        return true
-    }
+//    override func prefersStatusBarHidden() -> Bool {
+//        return true
+//    }
     
     // Reload data on page, and tell UIRefresher to stop moving
     func reload() {

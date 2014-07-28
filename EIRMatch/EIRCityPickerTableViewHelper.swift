@@ -29,12 +29,15 @@ class EIRCityPickerTableViewHelper : NSObject, UITableViewDelegate, UITableViewD
     
     // Height of header, adjusted
     func tableView(tableView: UITableView!, heightForHeaderInSection section: Int) -> CGFloat {
-        return (cityPicker!.totalHeight! - CGFloat(cityPicker!.cities.count) * cityPicker!.cellHeight) / 2.0 - 1.5 * navBarHeight
+        let totalh = (cityPicker!.totalHeight! - CGFloat(cityPicker!.cities.count) * cityPicker!.cellHeight)
+        let totaldiv2 = totalh / 2.0
+        let diff = (1.5 * navBarHeight)
+        return totaldiv2 - diff
     }
     
     // Height of footer, adjusted
     func tableView(tableView: UITableView!, heightForFooterInSection section: Int) -> CGFloat {
-        return (cityPicker!.totalHeight! - CGFloat(cityPicker!.cities.count) * cityPicker!.cellHeight) / 2.0 - navBarHeight/2.0
+        return (cityPicker!.totalHeight! - CGFloat(cityPicker!.cities.count) * cityPicker!.cellHeight) / CGFloat(2.0) - navBarHeight/2.0
     }
     
     // Height of each row

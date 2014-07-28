@@ -14,7 +14,7 @@ class EIRCityPicker : UITableViewController {
     let cellHeight = CGFloat(36.0)
     let cities = [City.NewYork, City.SanFrancisco, City.LosAngeles, City.Sunnyvale, City.LasVegas, City.OrangeCounty]
 
-    var totalHeight : Float?
+    var totalHeight : CGFloat?
 
     var chosenCity = "which office do you work in?"
     var city : City?

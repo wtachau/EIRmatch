@@ -117,9 +117,9 @@ class EIRPostController : UITableViewController {
         navigationController.popViewControllerAnimated(true)
     }
     
-    override func prefersStatusBarHidden() -> Bool {
-        return true
-    }
+//    override func prefersStatusBarHidden() -> Bool {
+//        return true
+//    }
     
 }
 
