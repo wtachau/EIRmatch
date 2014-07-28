@@ -19,9 +19,9 @@ class EIRBrowseController : UIViewController {
     
     var SubmitButton : UIButton?
     
-    override func prefersStatusBarHidden() -> Bool {
-        return true
-    }
+//    override func prefersStatusBarHidden() -> Bool {
+//        return true
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,7 +82,7 @@ extension EIRBrowseController {
     func submitButtonTapped(button : UIButton) {
         navigationController.popViewControllerAnimated(true)
         for button in ButtonArray {
-            println(button.selected)
+            //println(button.selected)
         }
     }
 }

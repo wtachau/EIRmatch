@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		B814D5981981BA2D008587A3 /* EIRBrowseButtonFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B814D5971981BA2D008587A3 /* EIRBrowseButtonFormatter.swift */; };
+		B814D59C1982D44A008587A3 /* lightbulb.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B814D59B1982D44A008587A3 /* lightbulb.jpeg */; };
+		B85D1CA01986E0860087A4A2 /* user91.png in Resources */ = {isa = PBXBuildFile; fileRef = B85D1C9F1986E0860087A4A2 /* user91.png */; };
+		B85D1CA21986E3AB0087A4A2 /* EIRPersonDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85D1CA11986E3AB0087A4A2 /* EIRPersonDetailsController.swift */; };
+		B85D1CA51986E9F00087A4A2 /* EIRHomeMDCHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85D1CA41986E9F00087A4A2 /* EIRHomeMDCHelper.swift */; };
+		B85D1CA71986EB440087A4A2 /* design.png in Resources */ = {isa = PBXBuildFile; fileRef = B85D1CA61986EB440087A4A2 /* design.png */; };
+		B85D1CAA1986EF140087A4A2 /* developer.png in Resources */ = {isa = PBXBuildFile; fileRef = B85D1CA81986EF140087A4A2 /* developer.png */; };
+		B85D1CAB1986EF140087A4A2 /* management.png in Resources */ = {isa = PBXBuildFile; fileRef = B85D1CA91986EF140087A4A2 /* management.png */; };
+		B85D1CAD1986F80E0087A4A2 /* EIRLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85D1CAC1986F80E0087A4A2 /* EIRLogin.swift */; };
 		B85DC837197D99F400E02452 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DC836197D99F400E02452 /* AppDelegate.swift */; };
 		B85DC83C197D99F400E02452 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B85DC83A197D99F400E02452 /* Main.storyboard */; };
 		B85DC83E197D99F400E02452 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B85DC83D197D99F400E02452 /* Images.xcassets */; };
@@ -24,6 +32,10 @@
 		B85DC875197F069500E02452 /* EIRCityPickerTableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DC874197F069500E02452 /* EIRCityPickerTableViewHelper.swift */; };
 		B85DC877197F081000E02452 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DC876197F081000E02452 /* ViewController.swift */; };
 		B86B75F61981963900ECDACE /* EIRMatch.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = B86B75F51981963900ECDACE /* EIRMatch.entitlements */; };
+		B88C0E271982F554001E805B /* EIRPostDetailViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88C0E261982F553001E805B /* EIRPostDetailViewer.swift */; };
+		B88C0E2A1982FF9A001E805B /* packet.png in Resources */ = {isa = PBXBuildFile; fileRef = B88C0E291982FF9A001E805B /* packet.png */; };
+		B88C0E2C1986BE7D001E805B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88C0E2B1986BE7D001E805B /* MessageUI.framework */; };
+		B88C0E2E1986C06F001E805B /* EIRMessageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88C0E2D1986C06F001E805B /* EIRMessageDelegate.swift */; };
 		B89EE056197F2C6D002F4FF4 /* EIRShowAllTableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89EE055197F2C6D002F4FF4 /* EIRShowAllTableViewHelper.swift */; };
 		B8FFC98C1980218500372EA7 /* EIRPostHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FFC98B1980218500372EA7 /* EIRPostHelper.swift */; };
 		B8FFC98E198021D000372EA7 /* EIRPostCellFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FFC98D198021D000372EA7 /* EIRPostCellFormatter.swift */; };
@@ -40,6 +52,7 @@
 		B8FFCA241980931700372EA7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8FFCA231980931700372EA7 /* Security.framework */; };
 		B8FFCA281980932500372EA7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8FFCA271980932500372EA7 /* SystemConfiguration.framework */; };
 		B8FFCA2A19817DB700372EA7 /* EIRPostLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FFCA2919817DB700372EA7 /* EIRPostLoader.swift */; };
+		DF095CFF9D144562835C5F30 /* libPods-EIRMatch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 943B49E74032484DBF760B33 /* libPods-EIRMatch.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +66,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		307CD7C972914291BC8A6301 /* Pods-EIRMatch.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EIRMatch.xcconfig"; path = "Pods/Pods-EIRMatch.xcconfig"; sourceTree = "<group>"; };
+		943B49E74032484DBF760B33 /* libPods-EIRMatch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EIRMatch.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B814D5971981BA2D008587A3 /* EIRBrowseButtonFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRBrowseButtonFormatter.swift; sourceTree = "<group>"; };
+		B814D59B1982D44A008587A3 /* lightbulb.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lightbulb.jpeg; sourceTree = "<group>"; };
+		B85D1C9F1986E0860087A4A2 /* user91.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user91.png; sourceTree = "<group>"; };
+		B85D1CA11986E3AB0087A4A2 /* EIRPersonDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRPersonDetailsController.swift; sourceTree = "<group>"; };
+		B85D1CA41986E9F00087A4A2 /* EIRHomeMDCHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRHomeMDCHelper.swift; sourceTree = "<group>"; };
+		B85D1CA61986EB440087A4A2 /* design.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = design.png; sourceTree = "<group>"; };
+		B85D1CA81986EF140087A4A2 /* developer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = developer.png; sourceTree = "<group>"; };
+		B85D1CA91986EF140087A4A2 /* management.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = management.png; sourceTree = "<group>"; };
+		B85D1CAC1986F80E0087A4A2 /* EIRLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRLogin.swift; sourceTree = "<group>"; };
 		B85DC831197D99F400E02452 /* EIRMatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EIRMatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B85DC835197D99F400E02452 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B85DC836197D99F400E02452 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +97,10 @@
 		B85DC874197F069500E02452 /* EIRCityPickerTableViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRCityPickerTableViewHelper.swift; sourceTree = "<group>"; };
 		B85DC876197F081000E02452 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B86B75F51981963900ECDACE /* EIRMatch.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = EIRMatch.entitlements; path = EIRMatch/EIRMatch.entitlements; sourceTree = "<group>"; };
+		B88C0E261982F553001E805B /* EIRPostDetailViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRPostDetailViewer.swift; sourceTree = "<group>"; };
+		B88C0E291982FF9A001E805B /* packet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = packet.png; sourceTree = "<group>"; };
+		B88C0E2B1986BE7D001E805B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		B88C0E2D1986C06F001E805B /* EIRMessageDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRMessageDelegate.swift; sourceTree = "<group>"; };
 		B89EE055197F2C6D002F4FF4 /* EIRShowAllTableViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRShowAllTableViewHelper.swift; sourceTree = "<group>"; };
 		B8FFC98B1980218500372EA7 /* EIRPostHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRPostHelper.swift; sourceTree = "<group>"; };
 		B8FFC98D198021D000372EA7 /* EIRPostCellFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRPostCellFormatter.swift; sourceTree = "<group>"; };
@@ -98,6 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B88C0E2C1986BE7D001E805B /* MessageUI.framework in Frameworks */,
 				B8FFCA281980932500372EA7 /* SystemConfiguration.framework in Frameworks */,
 				B8FFCA241980931700372EA7 /* Security.framework in Frameworks */,
 				B8FFCA221980931100372EA7 /* QuartzCore.framework in Frameworks */,
@@ -108,6 +136,7 @@
 				B8FFCA18198092F000372EA7 /* CFNetwork.framework in Frameworks */,
 				B8FFCA16198092E900372EA7 /* AudioToolbox.framework in Frameworks */,
 				B8FFCA14198092DF00372EA7 /* Parse.framework in Frameworks */,
+				DF095CFF9D144562835C5F30 /* libPods-EIRMatch.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,9 +150,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B03EA09CA4974DBAB353FA61 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B88C0E2B1986BE7D001E805B /* MessageUI.framework */,
+				943B49E74032484DBF760B33 /* libPods-EIRMatch.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B85D1CA31986E3B40087A4A2 /* PersonDetails */ = {
+			isa = PBXGroup;
+			children = (
+				B85D1CA11986E3AB0087A4A2 /* EIRPersonDetailsController.swift */,
+			);
+			name = PersonDetails;
+			sourceTree = "<group>";
+		};
 		B85DC828197D99F300E02452 = {
 			isa = PBXGroup;
 			children = (
+				B85DC86F197F063100E02452 /* OLD */,
 				B86B75F51981963900ECDACE /* EIRMatch.entitlements */,
 				B8FFCA271980932500372EA7 /* SystemConfiguration.framework */,
 				B8FFCA231980931700372EA7 /* Security.framework */,
@@ -140,6 +187,8 @@
 				B85DC846197D99F400E02452 /* EIRMatchTests */,
 				B85DC832197D99F400E02452 /* Products */,
 				B8FFCA101980927E00372EA7 /* EIRMatch-Bridging-Header.h */,
+				307CD7C972914291BC8A6301 /* Pods-EIRMatch.xcconfig */,
+				B03EA09CA4974DBAB353FA61 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -165,6 +214,7 @@
 				B85DC83A197D99F400E02452 /* Main.storyboard */,
 				B85DC83D197D99F400E02452 /* Images.xcassets */,
 				B85DC834197D99F400E02452 /* Supporting Files */,
+				B85D1CAC1986F80E0087A4A2 /* EIRLogin.swift */,
 			);
 			path = EIRMatch;
 			sourceTree = "<group>";
@@ -197,6 +247,12 @@
 		B85DC857197DC77200E02452 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B85D1CA81986EF140087A4A2 /* developer.png */,
+				B85D1CA91986EF140087A4A2 /* management.png */,
+				B85D1CA61986EB440087A4A2 /* design.png */,
+				B85D1C9F1986E0860087A4A2 /* user91.png */,
+				B88C0E291982FF9A001E805B /* packet.png */,
+				B814D59B1982D44A008587A3 /* lightbulb.jpeg */,
 				B85DC858197DC77200E02452 /* binary7.png */,
 				B85DC859197DC77200E02452 /* career.png */,
 				B85DC85A197DC77200E02452 /* website8.png */,
@@ -208,20 +264,23 @@
 			isa = PBXGroup;
 			children = (
 				B85DC862197DD77000E02452 /* EIRHomeController.swift */,
-				B85DC86F197F063100E02452 /* Browse */,
+				B85D1CA41986E9F00087A4A2 /* EIRHomeMDCHelper.swift */,
+				B85D1CA31986E3B40087A4A2 /* PersonDetails */,
+				B88C0E281982F576001E805B /* PostViewer */,
 				B85DC870197F063700E02452 /* ShowAll */,
 				B85DC871197F064500E02452 /* Post */,
 			);
 			name = MainMenu;
 			sourceTree = "<group>";
 		};
-		B85DC86F197F063100E02452 /* Browse */ = {
+		B85DC86F197F063100E02452 /* OLD */ = {
 			isa = PBXGroup;
 			children = (
 				B85DC853197D9C7D00E02452 /* EIRBrowseController.swift */,
 				B814D5971981BA2D008587A3 /* EIRBrowseButtonFormatter.swift */,
 			);
-			name = Browse;
+			name = OLD;
+			path = EIRMatch;
 			sourceTree = "<group>";
 		};
 		B85DC870197F063700E02452 /* ShowAll */ = {
@@ -245,6 +304,15 @@
 			name = Post;
 			sourceTree = "<group>";
 		};
+		B88C0E281982F576001E805B /* PostViewer */ = {
+			isa = PBXGroup;
+			children = (
+				B88C0E261982F553001E805B /* EIRPostDetailViewer.swift */,
+				B88C0E2D1986C06F001E805B /* EIRMessageDelegate.swift */,
+			);
+			name = PostViewer;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -252,9 +320,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B85DC84D197D99F400E02452 /* Build configuration list for PBXNativeTarget "EIRMatch" */;
 			buildPhases = (
+				08A8D021EC354EB1A78412ED /* Check Pods Manifest.lock */,
 				B85DC82D197D99F400E02452 /* Sources */,
 				B85DC82E197D99F400E02452 /* Frameworks */,
 				B85DC82F197D99F400E02452 /* Resources */,
+				60BFA36B6795449F9DAD22F9 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -338,8 +408,14 @@
 				B85DC85B197DC77200E02452 /* binary7.png in Resources */,
 				B86B75F61981963900ECDACE /* EIRMatch.entitlements in Resources */,
 				B85DC83E197D99F400E02452 /* Images.xcassets in Resources */,
+				B85D1CAA1986EF140087A4A2 /* developer.png in Resources */,
 				B85DC85D197DC77200E02452 /* website8.png in Resources */,
+				B88C0E2A1982FF9A001E805B /* packet.png in Resources */,
 				B85DC85C197DC77200E02452 /* career.png in Resources */,
+				B85D1CA71986EB440087A4A2 /* design.png in Resources */,
+				B814D59C1982D44A008587A3 /* lightbulb.jpeg in Resources */,
+				B85D1CAB1986EF140087A4A2 /* management.png in Resources */,
+				B85D1CA01986E0860087A4A2 /* user91.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +427,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		08A8D021EC354EB1A78412ED /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		60BFA36B6795449F9DAD22F9 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-EIRMatch-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B85DC82D197D99F400E02452 /* Sources */ = {
@@ -365,14 +474,19 @@
 				B8FFCA2A19817DB700372EA7 /* EIRPostLoader.swift in Sources */,
 				B85DC854197D9C7D00E02452 /* EIRBrowseController.swift in Sources */,
 				B85DC86B197EDAFB00E02452 /* EIRShowAllController.swift in Sources */,
+				B88C0E271982F554001E805B /* EIRPostDetailViewer.swift in Sources */,
 				B85DC863197DD77000E02452 /* EIRHomeController.swift in Sources */,
+				B88C0E2E1986C06F001E805B /* EIRMessageDelegate.swift in Sources */,
 				B85DC837197D99F400E02452 /* AppDelegate.swift in Sources */,
 				B814D5981981BA2D008587A3 /* EIRBrowseButtonFormatter.swift in Sources */,
 				B8FFC98C1980218500372EA7 /* EIRPostHelper.swift in Sources */,
 				B89EE056197F2C6D002F4FF4 /* EIRShowAllTableViewHelper.swift in Sources */,
 				B85DC873197F068900E02452 /* EIRCityPicker.swift in Sources */,
 				B85DC865197EC6D700E02452 /* EIRPostController.swift in Sources */,
+				B85D1CA21986E3AB0087A4A2 /* EIRPersonDetailsController.swift in Sources */,
 				B85DC856197DA11400E02452 /* EIRSystemResources.swift in Sources */,
+				B85D1CA51986E9F00087A4A2 /* EIRHomeMDCHelper.swift in Sources */,
+				B85D1CAD1986F80E0087A4A2 /* EIRLogin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,6 +599,7 @@
 		};
 		B85DC84E197D99F400E02452 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 307CD7C972914291BC8A6301 /* Pods-EIRMatch.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -497,6 +612,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = EIRMatch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -507,6 +623,7 @@
 		};
 		B85DC84F197D99F400E02452 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 307CD7C972914291BC8A6301 /* Pods-EIRMatch.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -519,6 +636,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = EIRMatch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

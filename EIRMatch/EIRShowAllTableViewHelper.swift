@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EIRShowAllTableViewHelper : NSObject, UITableViewDataSource {
+class EIRShowAllTableViewHelper : NSObject, UITableViewDataSource, UITableViewDelegate {
     
     var allPosts = Array<PFObject>()
     // store reload function of the UITableView for which this is a datasource
@@ -50,5 +50,16 @@ class EIRShowAllTableViewHelper : NSObject, UITableViewDataSource {
         }
         cell.backgroundColor = backgroundColor
         return cell
+    }
+    
+    
+    // If a project is selected
+    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+        
+        let postViewer = EIRPostDetailViewer(post: allPosts[indexPath.row])
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        appDelegate.navigationController!.pushViewController(postViewer, animated: true)
+        
     }
 }
