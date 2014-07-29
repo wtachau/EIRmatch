@@ -15,7 +15,9 @@
 		B85D1CA71986EB440087A4A2 /* design.png in Resources */ = {isa = PBXBuildFile; fileRef = B85D1CA61986EB440087A4A2 /* design.png */; };
 		B85D1CAA1986EF140087A4A2 /* developer.png in Resources */ = {isa = PBXBuildFile; fileRef = B85D1CA81986EF140087A4A2 /* developer.png */; };
 		B85D1CAB1986EF140087A4A2 /* management.png in Resources */ = {isa = PBXBuildFile; fileRef = B85D1CA91986EF140087A4A2 /* management.png */; };
-		B85D1CAD1986F80E0087A4A2 /* EIRLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85D1CAC1986F80E0087A4A2 /* EIRLogin.swift */; };
+		B85D1CAD1986F80E0087A4A2 /* EIRLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85D1CAC1986F80E0087A4A2 /* EIRLoginController.swift */; };
+		B85D1CAF1986FBE40087A4A2 /* EIRLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85D1CAE1986FBE40087A4A2 /* EIRLoginHelper.swift */; };
+		B85D1CB2198704B20087A4A2 /* EIRLoginCellFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85D1CB1198704B20087A4A2 /* EIRLoginCellFormatter.swift */; };
 		B85DC837197D99F400E02452 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DC836197D99F400E02452 /* AppDelegate.swift */; };
 		B85DC83C197D99F400E02452 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B85DC83A197D99F400E02452 /* Main.storyboard */; };
 		B85DC83E197D99F400E02452 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B85DC83D197D99F400E02452 /* Images.xcassets */; };
@@ -76,7 +78,9 @@
 		B85D1CA61986EB440087A4A2 /* design.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = design.png; sourceTree = "<group>"; };
 		B85D1CA81986EF140087A4A2 /* developer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = developer.png; sourceTree = "<group>"; };
 		B85D1CA91986EF140087A4A2 /* management.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = management.png; sourceTree = "<group>"; };
-		B85D1CAC1986F80E0087A4A2 /* EIRLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRLogin.swift; sourceTree = "<group>"; };
+		B85D1CAC1986F80E0087A4A2 /* EIRLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRLoginController.swift; sourceTree = "<group>"; };
+		B85D1CAE1986FBE40087A4A2 /* EIRLoginHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRLoginHelper.swift; sourceTree = "<group>"; };
+		B85D1CB1198704B20087A4A2 /* EIRLoginCellFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRLoginCellFormatter.swift; sourceTree = "<group>"; };
 		B85DC831197D99F400E02452 /* EIRMatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EIRMatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B85DC835197D99F400E02452 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B85DC836197D99F400E02452 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -130,13 +134,13 @@
 				B8FFCA241980931700372EA7 /* Security.framework in Frameworks */,
 				B8FFCA221980931100372EA7 /* QuartzCore.framework in Frameworks */,
 				B8FFCA201980930B00372EA7 /* MobileCoreServices.framework in Frameworks */,
-				B8FFCA1E1980930300372EA7 /* libz.dylib in Frameworks */,
 				B8FFCA1C198092FD00372EA7 /* CoreLocation.framework in Frameworks */,
 				B8FFCA1A198092F700372EA7 /* CoreGraphics.framework in Frameworks */,
 				B8FFCA18198092F000372EA7 /* CFNetwork.framework in Frameworks */,
 				B8FFCA16198092E900372EA7 /* AudioToolbox.framework in Frameworks */,
 				B8FFCA14198092DF00372EA7 /* Parse.framework in Frameworks */,
 				DF095CFF9D144562835C5F30 /* libPods-EIRMatch.a in Frameworks */,
+				B8FFCA1E1980930300372EA7 /* libz.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +169,18 @@
 				B85D1CA11986E3AB0087A4A2 /* EIRPersonDetailsController.swift */,
 			);
 			name = PersonDetails;
+			sourceTree = "<group>";
+		};
+		B85D1CB01986FC6B0087A4A2 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B85D1CAC1986F80E0087A4A2 /* EIRLoginController.swift */,
+				B85D1CAE1986FBE40087A4A2 /* EIRLoginHelper.swift */,
+				B85D1CB1198704B20087A4A2 /* EIRLoginCellFormatter.swift */,
+				B85DC872197F068900E02452 /* EIRCityPicker.swift */,
+				B85DC874197F069500E02452 /* EIRCityPickerTableViewHelper.swift */,
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 		B85DC828197D99F300E02452 = {
@@ -207,14 +223,12 @@
 				B85DC876197F081000E02452 /* ViewController.swift */,
 				B85DC855197DA11400E02452 /* EIRSystemResources.swift */,
 				B85DC836197D99F400E02452 /* AppDelegate.swift */,
-				B8FFC98F1980307D00372EA7 /* EIRPost.swift */,
-				B8FFC9941980680F00372EA7 /* EIRPostSaver.swift */,
-				B8FFCA2919817DB700372EA7 /* EIRPostLoader.swift */,
+				B8793A8919882A5100348854 /* Posts */,
+				B85D1CB01986FC6B0087A4A2 /* Login */,
 				B85DC86E197F061300E02452 /* MainMenu */,
 				B85DC83A197D99F400E02452 /* Main.storyboard */,
 				B85DC83D197D99F400E02452 /* Images.xcassets */,
 				B85DC834197D99F400E02452 /* Supporting Files */,
-				B85D1CAC1986F80E0087A4A2 /* EIRLogin.swift */,
 			);
 			path = EIRMatch;
 			sourceTree = "<group>";
@@ -276,6 +290,7 @@
 		B85DC86F197F063100E02452 /* OLD */ = {
 			isa = PBXGroup;
 			children = (
+				B8FFC9941980680F00372EA7 /* EIRPostSaver.swift */,
 				B85DC853197D9C7D00E02452 /* EIRBrowseController.swift */,
 				B814D5971981BA2D008587A3 /* EIRBrowseButtonFormatter.swift */,
 			);
@@ -298,10 +313,17 @@
 				B85DC864197EC6D700E02452 /* EIRPostController.swift */,
 				B8FFC98B1980218500372EA7 /* EIRPostHelper.swift */,
 				B8FFC98D198021D000372EA7 /* EIRPostCellFormatter.swift */,
-				B85DC872197F068900E02452 /* EIRCityPicker.swift */,
-				B85DC874197F069500E02452 /* EIRCityPickerTableViewHelper.swift */,
 			);
 			name = Post;
+			sourceTree = "<group>";
+		};
+		B8793A8919882A5100348854 /* Posts */ = {
+			isa = PBXGroup;
+			children = (
+				B8FFC98F1980307D00372EA7 /* EIRPost.swift */,
+				B8FFCA2919817DB700372EA7 /* EIRPostLoader.swift */,
+			);
+			name = Posts;
 			sourceTree = "<group>";
 		};
 		B88C0E281982F576001E805B /* PostViewer */ = {
@@ -470,7 +492,9 @@
 				B85DC877197F081000E02452 /* ViewController.swift in Sources */,
 				B8FFC98E198021D000372EA7 /* EIRPostCellFormatter.swift in Sources */,
 				B8FFC9951980680F00372EA7 /* EIRPostSaver.swift in Sources */,
+				B85D1CAF1986FBE40087A4A2 /* EIRLoginHelper.swift in Sources */,
 				B85DC875197F069500E02452 /* EIRCityPickerTableViewHelper.swift in Sources */,
+				B85D1CB2198704B20087A4A2 /* EIRLoginCellFormatter.swift in Sources */,
 				B8FFCA2A19817DB700372EA7 /* EIRPostLoader.swift in Sources */,
 				B85DC854197D9C7D00E02452 /* EIRBrowseController.swift in Sources */,
 				B85DC86B197EDAFB00E02452 /* EIRShowAllController.swift in Sources */,
@@ -486,7 +510,7 @@
 				B85D1CA21986E3AB0087A4A2 /* EIRPersonDetailsController.swift in Sources */,
 				B85DC856197DA11400E02452 /* EIRSystemResources.swift in Sources */,
 				B85D1CA51986E9F00087A4A2 /* EIRHomeMDCHelper.swift in Sources */,
-				B85D1CAD1986F80E0087A4A2 /* EIRLogin.swift in Sources */,
+				B85D1CAD1986F80E0087A4A2 /* EIRLoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,6 +638,10 @@
 				INFOPLIST_FILE = EIRMatch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TestFlightSDK3.0.2",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "EIRMatch-Bridging-Header.h";
@@ -638,6 +666,10 @@
 				INFOPLIST_FILE = EIRMatch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TestFlightSDK3.0.2",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "EIRMatch-Bridging-Header.h";

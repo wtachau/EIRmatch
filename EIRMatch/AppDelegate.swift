@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // The current user
     var currentUser : PFUser?
+    var isLoggedIn : Boolean?
     
     // set up relevant view controllers
     var navigationController: UINavigationController?
@@ -24,59 +25,69 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var detailsController : EIRPersonDetailsController?
     var postController : EIRPostController?
     var showAllController : EIRShowAllController?
+    var loginController : EIRLoginController?
 
     func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
         
         //set up Parse
         Parse.setApplicationId("wb6OU1sqWT9vq78k7Pr2AW60ziY2IaUkg4aoJrwe", clientKey: "Dxa09Mny6GHFrcHEyFKqqswd0lCJwvhf5E8IXKUM")
-        
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
 
         // Init view controllers
         homeController = EIRHomeController()
         
-        
         detailsController = EIRPersonDetailsController()
+        detailsController!.setUpLogout(onLogout)
+        
         postController = EIRPostController()
         showAllController = EIRShowAllController()
         
-        myMethod()
+        loginController = EIRLoginController()
+        loginController!.setLoginSuccess(onSuccess)
+        
+        // See if user is logged in or not
+        self.currentUser = PFUser.currentUser()
+        currentUser ? showApp() : showLogin()
         
         return true
-        
     }
     
-    
-    // TODO: Remove
-    func myMethod() {
-        var user = PFUser()
-        user.username = "Will Tachau"
-        user.password = "myPassword"
-        user.email = "email@example.com"
-        // other fields can be set just like with PFObject
-        user["phone"] = "415-392-0202"
+    // Pushes the login view controller as root of nav controller
+    func showLogin() {
         
-        user.signUpInBackgroundWithBlock {
-            (succeeded: Bool!, error: NSError!) -> Void in
-            if !error {
-                println("login success")
-                
-                self.currentUser = user
-                
-                self.navigationController = UINavigationController(rootViewController: self.homeController)
-                if let navBar = self.navigationController?.navigationBar {
-                    navBar.barTintColor = backgroundColor
-                    navBar.translucent = false
-                    navBar.tintColor = UIColor.whiteColor()
-                    navBar.titleTextAttributes = NSDictionary(dictionary: [UIColor.whiteColor():NSForegroundColorAttributeName])
-                }
-                
-                self.window!.rootViewController = self.navigationController
-            } else {
-                let errorString = error.userInfo["error"] as NSString
-                // Show the errorString somewhere and let the user try again.
-            }
+        self.navigationController = UINavigationController(rootViewController: self.loginController)
+        if let navBar = self.navigationController?.navigationBar {
+            navBar.barTintColor = backgroundColor
+            navBar.translucent = false
+            navBar.tintColor = UIColor.whiteColor()
+            navBar.titleTextAttributes = NSDictionary(dictionary: [UIColor.whiteColor():NSForegroundColorAttributeName])
         }
+        self.window!.rootViewController = self.navigationController
+    }
+    
+    // When login view controller successfully logs in/ signs up
+    func onSuccess() {
+        self.currentUser = PFUser.currentUser()
+        self.showApp()
+    }
+    
+    // When detail view logs out
+    func onLogout() {
+        self.currentUser = PFUser.currentUser()
+        showLogin()
+    }
+    
+    // Pushes the home view controller as root of nav controller
+    func showApp() {
+        self.navigationController = UINavigationController(rootViewController: self.homeController)
+        if let navBar = self.navigationController?.navigationBar {
+            navBar.barTintColor = backgroundColor
+            navBar.translucent = false
+            navBar.tintColor = UIColor.whiteColor()
+            navBar.titleTextAttributes = NSDictionary(dictionary: [UIColor.whiteColor():NSForegroundColorAttributeName])
+        }
+        
+        self.window!.rootViewController = self.navigationController
     }
 
     func applicationWillResignActive(application: UIApplication!) {

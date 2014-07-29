@@ -13,22 +13,12 @@ class EIRPostController : UITableViewController {
     // Datasource and delegate
     var postHelper : EIRPostHelper?
     
-    // Info that will be used to generate post
-    var nameField = UITextField()
-    // Also changes dynamically
-    var cityText = "which office are you in?"
-    var cityTextChanged = false
-    
     var needs = Dictionary<Role, UISwitch>()
     var postTitle = UITextField()
     var postDesc = UITextView()
     
     // Used because height of description changes dynamically based on screen size
     var descHeight : CGFloat = 0.0
-    
-    // City name class and delegate
-    var cityPicker : EIRCityPicker?
-    var cityPickerHelper : EIRCityPickerTableViewHelper?
     
     let sideBuffer = CGFloat(10)
     let topBuffer = CGFloat(9)
@@ -45,12 +35,6 @@ class EIRPostController : UITableViewController {
         needs[.Developer] = UISwitch()
         needs[.Design] = UISwitch()
         
-        cityPicker = EIRCityPicker()
-        cityPickerHelper = EIRCityPickerTableViewHelper(cityPicker: cityPicker!)
-        
-        // set up city picker classes
-        cityPicker!.tableView.delegate = cityPickerHelper!
-        cityPicker!.tableView.dataSource = cityPickerHelper!
         
         // format the bottom of the table
         tableView.tableFooterView = UIView(frame: CGRect.zeroRect)
@@ -62,7 +46,7 @@ class EIRPostController : UITableViewController {
         
         // calculate height so bottom cell fills screen
         self.descHeight = view.bounds.size.height
-                        - tableView.rectForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 2)).origin.y
+                        - tableView.rectForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 1)).origin.y
                         - navBarHeight
         
         // add "done" button to upper right
@@ -86,22 +70,8 @@ class EIRPostController : UITableViewController {
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
-        cityText = cityPicker!.chosenCity
-        tableView.reloadData()
-    }
-    
     func postProject(AnyObject) {
         view.endEditing(true)
-        
-        // get city (city enum)
-        var city : City = {
-            if let cityString = self.cityPicker!.city {
-                return cityString
-            } else {
-                return City.Other
-            }
-        }()
         
         // get needs (role enum: boolean)
         var needsDict = Dictionary<Int, Bool>()
@@ -109,17 +79,32 @@ class EIRPostController : UITableViewController {
             needsDict[role.toRaw()] = needs[role]!.on
         }
         
-        // Generate Post object
-        let newPost = EIRPost(name: nameField.text, city: city, needs: needsDict, title: postTitle.text, description: postDesc.text)
-        postSaver.save(newPost)
+        // Start saving process
+        var postObject = PFObject(className: "Post")
+        postObject.setObject(appDelegate.currentUser!, forKey: "userID")
+        
+        // Parse only likes NSDictionaries containing strings, so a little conversion is necessary
+        var keyStrings = Array<String>()
+        var objectStrings = Array<String>()
+        for (key : Int, object : Bool) in needsDict {
+            keyStrings.append(key.bridgeToObjectiveC().stringValue)
+            objectStrings.append(object.bridgeToObjectiveC().stringValue)
+        }
+        var postDict = NSDictionary(objects: objectStrings, forKeys: keyStrings)
+        
+        postObject.setObject(postDict, forKey: "needs")
+        postObject.setObject(postTitle.text, forKey: "title")
+        postObject.setObject(postDesc.text, forKey: "description")
+        postObject.saveInBackgroundWithBlock {
+            (success: Bool!, error: NSError!) -> Void in
+            if !success {
+                println("Error: \(error)")
+            }
+        }
         
         // Go back
         navigationController.popViewControllerAnimated(true)
     }
-    
-//    override func prefersStatusBarHidden() -> Bool {
-//        return true
-//    }
     
 }
 

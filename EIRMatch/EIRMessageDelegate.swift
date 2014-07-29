@@ -18,6 +18,9 @@ class EIRMessageDelegate: NSObject, MFMailComposeViewControllerDelegate {
     }
     
     func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+        
+        // Apple's library still buggy
+        
 //        switch(result.value) {
 //        case MFMailComposeResultCancelled:
 //            "nothing"
@@ -26,6 +29,7 @@ class EIRMessageDelegate: NSObject, MFMailComposeViewControllerDelegate {
 //            "nothing"
 //            //println("something else happened")
 //        }
+
         // And dismiss view
         if let parent = parentClass {
             parent.dismissViewControllerAnimated(true, completion: nil)

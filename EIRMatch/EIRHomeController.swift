@@ -10,12 +10,10 @@ import UIKit
 
 class EIRHomeController : ViewController, MDCSwipeToChooseDelegate {
     
-    var BrowseButton : UIButton?
-    var PostButton : UIButton?
-    var SeeAllButton : UIButton?
+    var SeeAllButton = UIButton()
     
     // Store all the posts, to be used in showing views
-    var allPosts = Array<PFObject>()
+    var allPosts = Array<EIRPost>()
     var swipeViews = Array<MDCSwipeToChooseView>()
     let mdcOptions = MDCSwipeToChooseViewOptions()
     
@@ -38,85 +36,30 @@ class EIRHomeController : ViewController, MDCSwipeToChooseDelegate {
         let imageSize = CGFloat(25.0)
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: RBResizeImage(personImage, CGSizeMake(imageSize, imageSize)), style: UIBarButtonItemStyle.Bordered, target: self, action: "detailsTapped:")
         
-        // Initialize buttons
+        // Initialize see all button
         let buttonWidth = CGFloat(80)
         let buttonHeight = CGFloat(40)
-        
-        BrowseButton = UIButton(frame: CGRectMake((view.bounds.width - buttonWidth)/4,
-                                                    0.55 * self.view.bounds.height,
-                                                    buttonWidth, buttonHeight))
-        PostButton = UIButton(frame: CGRectMake(3*(view.bounds.width - buttonWidth)/4,
-            0.55 * self.view.bounds.height,
-            buttonWidth, buttonHeight))
-        
-        SeeAllButton = UIButton(frame: CGRectMake((view.bounds.width - buttonWidth)/2,
-            0.70 * self.view.bounds.height,
-            buttonWidth, buttonHeight))
-        
-        
-        if let button = SeeAllButton {
-            button.layer.cornerRadius = 10
-            button.layer.masksToBounds = true
-            var title : String?
-            title = "show all"
-            button.addTarget(self, action: "showAllTapped:", forControlEvents: UIControlEvents.TouchUpInside)
-            button.setTitle(title!, forState: UIControlState.Normal)
-            button.titleLabel.textColor = UIColor.whiteColor()
-            button.layer.borderWidth = 2
-            button.layer.borderColor = UIColor.whiteColor().CGColor
-            view.addSubview(button)
-        }
-        
-        
-        // Loop through buttons to customize
-//        var AllButtons = [BrowseButton, PostButton, SeeAllButton]
-//        for (Index, Button) in enumerate(AllButtons) {
-//            if let button = Button {
-//                button.layer.cornerRadius = 10
-//                button.layer.masksToBounds = true
-//                var title : String?
-//                switch Index {
-//                    case 0:
-//                        title = "browse"
-//                        button.addTarget(self, action: "browseTapped:", forControlEvents: UIControlEvents.TouchUpInside)
-//                    case 1:
-//                        title = "post"
-//                        button.addTarget(self, action: "postTapped:", forControlEvents: UIControlEvents.TouchUpInside)
-//                    default:
-//                        title = "show all"
-//                        button.addTarget(self, action: "showAllTapped:", forControlEvents: UIControlEvents.TouchUpInside)
-//                }
-//                button.setTitle(title!, forState: UIControlState.Normal)
-//                button.titleLabel.textColor = UIColor.whiteColor()
-//                button.layer.borderWidth = 2
-//                button.layer.borderColor = UIColor.whiteColor().CGColor
-//                view.addSubview(button)
-//            }
-//        }
+        SeeAllButton.frame = CGRectMake((view.bounds.width - buttonWidth)/2,
+                                        0.70 * self.view.bounds.height,
+                                        buttonWidth, buttonHeight)
+        SeeAllButton.layer.cornerRadius = 10
+        SeeAllButton.layer.masksToBounds = true
+        SeeAllButton.addTarget(self, action: "showAllTapped:", forControlEvents: UIControlEvents.TouchUpInside)
+        SeeAllButton.setTitle("show all", forState: UIControlState.Normal)
+        SeeAllButton.titleLabel.textColor = UIColor.whiteColor()
+        SeeAllButton.layer.borderWidth = 2
+        SeeAllButton.layer.borderColor = UIColor.whiteColor().CGColor
+        view.addSubview(SeeAllButton)
     }
     
-    // Update datasource with new posts, and reload UITableView
-    func setAllPosts(posts: [AnyObject]) -> () {
-        allPosts = []
-        for object in posts {
-            if let post = object as? PFObject {
-                allPosts.append(post)
-            }
-        }
+    // Update datasource with new posts (func sent to postLoader)
+    func setAllPosts(posts: [EIRPost]) -> () {
+        allPosts = posts
         refresher.stopAnimating()
         
         // set up mdc views
         setUpMDCViews()
     }
-}
-
-
-extension EIRHomeController {
-    
-    // If browse button tapped, push Browse view controller
-//    func browseTapped(AnyObject) {
-//        navigationController.pushViewController(appDelegate.browseController, animated: true)
-//    }
 
     // If person details button tapped, push view controller 
     func detailsTapped(AnyObject) {

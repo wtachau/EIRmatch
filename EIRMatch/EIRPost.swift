@@ -10,16 +10,18 @@ import UIKit
 
 class EIRPost {
     
-    var name : String?
-    var city : City?
+    var username : String?
+    var userEmail : String
+    var userID : PFObject?
     var needs : Dictionary<Int, Bool>
     var title : String
     var description : String
     
-    init(name: String, city: City, needs: Dictionary<Int, Bool>, title: String, description: String) {
+    init(username: String, userEmail: String, userID: PFObject, needs: Dictionary<Int, Bool>, title: String, description: String) {
         
-        self.name = name
-        self.city = city
+        self.username = username
+        self.userEmail = userEmail
+        self.userID = userID
         self.needs = needs
         self.title = title
         self.description = description

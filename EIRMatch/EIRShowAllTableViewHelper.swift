@@ -10,7 +10,7 @@ import UIKit
 
 class EIRShowAllTableViewHelper : NSObject, UITableViewDataSource, UITableViewDelegate {
     
-    var allPosts = Array<PFObject>()
+    var allPosts = Array<EIRPost>()
     // store reload function of the UITableView for which this is a datasource
     var reloadFunc: () -> () = {}
     
@@ -25,13 +25,8 @@ class EIRShowAllTableViewHelper : NSObject, UITableViewDataSource, UITableViewDe
     }
     
     // Update datasource with new posts, and reload UITableView
-    func setAllPosts(posts: [AnyObject]) -> () {
-        allPosts = []
-        for object in posts {
-            if let post = object as? PFObject {
-                allPosts.append(post)
-            }
-        }
+    func setAllPosts(posts: [EIRPost]) -> () {
+        allPosts = posts
         reloadFunc()
     }
     
@@ -44,7 +39,7 @@ class EIRShowAllTableViewHelper : NSObject, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         let cell = UITableViewCell(style: UITableViewCellStyle.Value2, reuseIdentifier: nil)
 
-        if let nameText = allPosts[indexPath.row].objectForKey("name") as? String {
+        if let nameText = allPosts[indexPath.row].username {
             cell.textLabel.text = nameText
             cell.textLabel.textColor = UIColor.whiteColor()
         }

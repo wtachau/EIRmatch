@@ -17,43 +17,41 @@ class EIRPostDetailViewer : UIViewController {
     var emailButton = UIButton()
     var needsLabel = UILabel()
     
+    var currentPost : EIRPost?
+    
     let mailerDelegate = EIRMessageDelegate()
     
-    
-    init(post: PFObject) {
+    init(post: EIRPost) {
+        currentPost = post
+        
         // Get the name
-        if let name = post.objectForKey("name") as? String {
+        if let name = post.username {
             nameField.frame = CGRectMake(10,10,150,30)
             nameField.text = name
             nameField.textColor = UIColor.whiteColor()
         }
         
-        // Get the city
-        if let title = post.objectForKey("title") as? String {
-            titleField.frame = CGRectMake(10,30,150,30)
-            titleField.textColor = UIColor.whiteColor()
-            titleField.text = title
-        }
+        // Get the title
+        titleField.frame = CGRectMake(10,30,150,30)
+        titleField.textColor = UIColor.whiteColor()
+        titleField.text = post.title
         
         // Description
-        if let desc = post.objectForKey("description") as? String {
-            descField.frame = CGRectMake(10,50, 250, 40)
-            descField.textColor = UIColor.whiteColor()
-            descField.text = desc
-        }
+        descField.frame = CGRectMake(10,50, 250, 40)
+        descField.textColor = UIColor.whiteColor()
+        descField.text = post.description
         
         // Needs
-        if let needs = post.objectForKey("needs") as? [String: String] {
-            needsLabel.frame = CGRectMake(10, 70, 250, 40)
-            needsLabel.textColor = UIColor.whiteColor()
-            needsLabel.text = needs[Role.Management.toRaw().bridgeToObjectiveC().stringValue]
-        }
+        needsLabel.frame = CGRectMake(10, 70, 250, 40)
+        needsLabel.textColor = UIColor.whiteColor()
+        needsLabel.text = post.needs[2]?.bridgeToObjectiveC().stringValue // [Role.Management.toRaw()]
         
         super.init(nibName: nil, bundle: nil)
     }
     
     override func viewDidLoad() {
         
+        // Set up email button
         let buttonSize = CGFloat(90.0)
         let yOffset = CGFloat(200.0)
         emailButton.frame = CGRectMake((view.bounds.size.width - buttonSize)/2,
@@ -61,7 +59,7 @@ class EIRPostDetailViewer : UIViewController {
         emailButton.setImage(UIImage(named: "packet.png"), forState: UIControlState.Normal)
         emailButton.addTarget(self, action: "sendEmail", forControlEvents: UIControlEvents.TouchUpInside)
         
-        
+        // Add all views
         view.addSubview(emailButton)
         view.backgroundColor = backgroundColor
         view.addSubview(nameField)
@@ -73,16 +71,18 @@ class EIRPostDetailViewer : UIViewController {
     
     // Generate and present mail viewer
     func sendEmail() {
-        if MFMailComposeViewController.canSendMail() {
-            let mailer = MFMailComposeViewController()
-            mailerDelegate.setParent(self)
-            mailer.mailComposeDelegate = mailerDelegate
-            mailer.setSubject("test")
-            mailer.setToRecipients(["test@example.com"])
-            mailer.setMessageBody("hello", isHTML: false)
-            self.presentViewController(mailer, animated: true, completion: nil)
-        } else {
-            println("ERROR: Unable to present MFMailComposeView")
+        
+        if let post = currentPost {
+            if MFMailComposeViewController.canSendMail() {
+                let mailer = MFMailComposeViewController()
+                mailerDelegate.setParent(self)
+                mailer.mailComposeDelegate = mailerDelegate
+                mailer.setSubject("Your Project: \(post.title)")
+                mailer.setToRecipients(["\(post.userEmail)"])
+                self.presentViewController(mailer, animated: true, completion: nil)
+            } else {
+                println("ERROR: Unable to present MFMailComposeView")
+            }
         }
     }
     

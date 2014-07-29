@@ -10,6 +10,8 @@ import UIKit
 
 class EIRCityPickerTableViewHelper : NSObject, UITableViewDelegate, UITableViewDataSource {
     
+    var returnFunc: () -> () = {}
+    
     // The model
     var cityPicker : EIRCityPicker?
     
@@ -29,10 +31,7 @@ class EIRCityPickerTableViewHelper : NSObject, UITableViewDelegate, UITableViewD
     
     // Height of header, adjusted
     func tableView(tableView: UITableView!, heightForHeaderInSection section: Int) -> CGFloat {
-        let totalh = (cityPicker!.totalHeight! - CGFloat(cityPicker!.cities.count) * cityPicker!.cellHeight)
-        let totaldiv2 = totalh / 2.0
-        let diff = (1.5 * navBarHeight)
-        return totaldiv2 - diff
+        return (cityPicker!.totalHeight! - CGFloat(cityPicker!.cities.count) * cityPicker!.cellHeight) / 2.0 - (1.5 * navBarHeight)
     }
     
     // Height of footer, adjusted
@@ -56,11 +55,12 @@ class EIRCityPickerTableViewHelper : NSObject, UITableViewDelegate, UITableViewD
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
         }
         
-        cell!.backgroundColor = buttonColor
-        cell!.textLabel.font = UIFont(name: "HelveticaNeue-Light", size: 16.0)
-        cell!.textLabel.text = cityPicker!.cities[indexPath.row].string()
-        cell!.textLabel.textColor = UIColor.whiteColor()
-        
+        if let theCell = cell {
+            theCell.backgroundColor = buttonColor
+            theCell.textLabel.font = UIFont(name: "HelveticaNeue-Light", size: 16.0)
+            theCell.textLabel.text = cityPicker!.cities[indexPath.row].string()
+            theCell.textLabel.textColor = UIColor.whiteColor()
+        }
         return cell
     }
     
@@ -81,7 +81,10 @@ class EIRCityPickerTableViewHelper : NSObject, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         cityPicker!.chosenCity = cityPicker!.cities[indexPath.row].string()
         cityPicker!.city = cityPicker!.cities[indexPath.row]
-        cityPicker!.navigationController.popViewControllerAnimated(true)
+        self.returnFunc()
     }
     
+    func setReturn(returnFunc:(()->())) {
+        self.returnFunc = returnFunc
+    }
 }

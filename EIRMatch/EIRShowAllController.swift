@@ -26,15 +26,12 @@ class EIRShowAllController: UITableViewController {
             helper.refreshPosts()
         }
         
+        // Format background and uirefresher
         tableView.backgroundColor = backgroundColor
         refresher.tintColor = buttonColor
         refresher.addTarget(showAllHelper, action: "refreshPosts", forControlEvents: UIControlEvents.ValueChanged)
         refreshControl = refresher
     }
-    
-//    override func prefersStatusBarHidden() -> Bool {
-//        return true
-//    }
     
     // Reload data on page, and tell UIRefresher to stop moving
     func reload() {

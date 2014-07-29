@@ -29,7 +29,7 @@ let lightPurple = UIColorFromRGB(84, 24, 242)
 
 let navBarHeight = CGFloat(64)
 
-var postSaver = EIRPostSaver()
+//var postSaver = EIRPostSaver()
 var postLoader = EIRPostLoader()
 
 enum City : Int {
@@ -67,9 +67,9 @@ enum Role : Int {
         case .Management:
             return "Management"
         case .Developer:
-            return "Developer"
+            return "Developers"
         case .Design:
-            return "Design"
+            return "Designers"
         }
     }
     func image() -> UIImage {
