@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A0793C157FEB4642A1488E84 /* libPods-EIRMatch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 943B49E74032484DBF760B33 /* libPods-EIRMatch.a */; };
 		B814D5981981BA2D008587A3 /* EIRBrowseButtonFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B814D5971981BA2D008587A3 /* EIRBrowseButtonFormatter.swift */; };
 		B814D59C1982D44A008587A3 /* lightbulb.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B814D59B1982D44A008587A3 /* lightbulb.jpeg */; };
 		B85D1CA01986E0860087A4A2 /* user91.png in Resources */ = {isa = PBXBuildFile; fileRef = B85D1C9F1986E0860087A4A2 /* user91.png */; };
@@ -38,7 +39,10 @@
 		B88C0E2A1982FF9A001E805B /* packet.png in Resources */ = {isa = PBXBuildFile; fileRef = B88C0E291982FF9A001E805B /* packet.png */; };
 		B88C0E2C1986BE7D001E805B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88C0E2B1986BE7D001E805B /* MessageUI.framework */; };
 		B88C0E2E1986C06F001E805B /* EIRMessageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88C0E2D1986C06F001E805B /* EIRMessageDelegate.swift */; };
+		B897D47C1988365000D9BA08 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B897D47B1988365000D9BA08 /* Social.framework */; };
 		B89EE056197F2C6D002F4FF4 /* EIRShowAllTableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89EE055197F2C6D002F4FF4 /* EIRShowAllTableViewHelper.swift */; };
+		B8AF79C919883E7300128E66 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B897D479198835BC00D9BA08 /* Foundation.framework */; };
+		B8AF79CB19883F2700128E66 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8AF79CA19883F2700128E66 /* UIKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		B8FFC98C1980218500372EA7 /* EIRPostHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FFC98B1980218500372EA7 /* EIRPostHelper.swift */; };
 		B8FFC98E198021D000372EA7 /* EIRPostCellFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FFC98D198021D000372EA7 /* EIRPostCellFormatter.swift */; };
 		B8FFC9901980307D00372EA7 /* EIRPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FFC98F1980307D00372EA7 /* EIRPost.swift */; };
@@ -54,7 +58,6 @@
 		B8FFCA241980931700372EA7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8FFCA231980931700372EA7 /* Security.framework */; };
 		B8FFCA281980932500372EA7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8FFCA271980932500372EA7 /* SystemConfiguration.framework */; };
 		B8FFCA2A19817DB700372EA7 /* EIRPostLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FFCA2919817DB700372EA7 /* EIRPostLoader.swift */; };
-		DF095CFF9D144562835C5F30 /* libPods-EIRMatch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 943B49E74032484DBF760B33 /* libPods-EIRMatch.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,7 +108,10 @@
 		B88C0E291982FF9A001E805B /* packet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = packet.png; sourceTree = "<group>"; };
 		B88C0E2B1986BE7D001E805B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		B88C0E2D1986C06F001E805B /* EIRMessageDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRMessageDelegate.swift; sourceTree = "<group>"; };
+		B897D479198835BC00D9BA08 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B897D47B1988365000D9BA08 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		B89EE055197F2C6D002F4FF4 /* EIRShowAllTableViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRShowAllTableViewHelper.swift; sourceTree = "<group>"; };
+		B8AF79CA19883F2700128E66 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B8FFC98B1980218500372EA7 /* EIRPostHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRPostHelper.swift; sourceTree = "<group>"; };
 		B8FFC98D198021D000372EA7 /* EIRPostCellFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRPostCellFormatter.swift; sourceTree = "<group>"; };
 		B8FFC98F1980307D00372EA7 /* EIRPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRPost.swift; sourceTree = "<group>"; };
@@ -129,6 +135,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8AF79C919883E7300128E66 /* Foundation.framework in Frameworks */,
+				B8AF79CB19883F2700128E66 /* UIKit.framework in Frameworks */,
+				B8FFCA18198092F000372EA7 /* CFNetwork.framework in Frameworks */,
+				B897D47C1988365000D9BA08 /* Social.framework in Frameworks */,
 				B88C0E2C1986BE7D001E805B /* MessageUI.framework in Frameworks */,
 				B8FFCA281980932500372EA7 /* SystemConfiguration.framework in Frameworks */,
 				B8FFCA241980931700372EA7 /* Security.framework in Frameworks */,
@@ -136,11 +146,10 @@
 				B8FFCA201980930B00372EA7 /* MobileCoreServices.framework in Frameworks */,
 				B8FFCA1C198092FD00372EA7 /* CoreLocation.framework in Frameworks */,
 				B8FFCA1A198092F700372EA7 /* CoreGraphics.framework in Frameworks */,
-				B8FFCA18198092F000372EA7 /* CFNetwork.framework in Frameworks */,
 				B8FFCA16198092E900372EA7 /* AudioToolbox.framework in Frameworks */,
 				B8FFCA14198092DF00372EA7 /* Parse.framework in Frameworks */,
-				DF095CFF9D144562835C5F30 /* libPods-EIRMatch.a in Frameworks */,
 				B8FFCA1E1980930300372EA7 /* libz.dylib in Frameworks */,
+				A0793C157FEB4642A1488E84 /* libPods-EIRMatch.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,6 +166,9 @@
 		B03EA09CA4974DBAB353FA61 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B8AF79CA19883F2700128E66 /* UIKit.framework */,
+				B897D47B1988365000D9BA08 /* Social.framework */,
+				B897D479198835BC00D9BA08 /* Foundation.framework */,
 				B88C0E2B1986BE7D001E805B /* MessageUI.framework */,
 				943B49E74032484DBF760B33 /* libPods-EIRMatch.a */,
 			);
@@ -640,7 +652,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/TestFlightSDK3.0.2",
+					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -668,7 +680,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/TestFlightSDK3.0.2",
+					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

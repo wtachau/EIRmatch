@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D088738AD82B40CB8109EC45"
+               BlueprintIdentifier = "63C0A4718BE445FC871637FB"
                BuildableName = "libPods-EIRMatch-Bolts.a"
                BlueprintName = "Pods-EIRMatch-Bolts"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BE5D8C43A9AA464E91B4FA32"
+               BlueprintIdentifier = "3E42271F645A4AEDA75AB8AE"
                BuildableName = "libPods-EIRMatch.a"
                BlueprintName = "Pods-EIRMatch"
                ReferencedContainer = "container:Pods.xcodeproj">
