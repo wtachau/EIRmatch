@@ -13,9 +13,9 @@
 		B85D1CA01986E0860087A4A2 /* user91.png in Resources */ = {isa = PBXBuildFile; fileRef = B85D1C9F1986E0860087A4A2 /* user91.png */; };
 		B85D1CA21986E3AB0087A4A2 /* EIRPersonDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85D1CA11986E3AB0087A4A2 /* EIRPersonDetailsController.swift */; };
 		B85D1CA51986E9F00087A4A2 /* EIRHomeMDCHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85D1CA41986E9F00087A4A2 /* EIRHomeMDCHelper.swift */; };
-		B85D1CA71986EB440087A4A2 /* design.png in Resources */ = {isa = PBXBuildFile; fileRef = B85D1CA61986EB440087A4A2 /* design.png */; };
-		B85D1CAA1986EF140087A4A2 /* developer.png in Resources */ = {isa = PBXBuildFile; fileRef = B85D1CA81986EF140087A4A2 /* developer.png */; };
-		B85D1CAB1986EF140087A4A2 /* management.png in Resources */ = {isa = PBXBuildFile; fileRef = B85D1CA91986EF140087A4A2 /* management.png */; };
+		B85D1CA71986EB440087A4A2 /* designColor.png in Resources */ = {isa = PBXBuildFile; fileRef = B85D1CA61986EB440087A4A2 /* designColor.png */; };
+		B85D1CAA1986EF140087A4A2 /* developerColor.png in Resources */ = {isa = PBXBuildFile; fileRef = B85D1CA81986EF140087A4A2 /* developerColor.png */; };
+		B85D1CAB1986EF140087A4A2 /* managementColor.png in Resources */ = {isa = PBXBuildFile; fileRef = B85D1CA91986EF140087A4A2 /* managementColor.png */; };
 		B85D1CAD1986F80E0087A4A2 /* EIRLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85D1CAC1986F80E0087A4A2 /* EIRLoginController.swift */; };
 		B85D1CAF1986FBE40087A4A2 /* EIRLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85D1CAE1986FBE40087A4A2 /* EIRLoginHelper.swift */; };
 		B85D1CB2198704B20087A4A2 /* EIRLoginCellFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85D1CB1198704B20087A4A2 /* EIRLoginCellFormatter.swift */; };
@@ -25,9 +25,9 @@
 		B85DC84A197D99F400E02452 /* EIRMatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DC849197D99F400E02452 /* EIRMatchTests.swift */; };
 		B85DC854197D9C7D00E02452 /* EIRBrowseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DC853197D9C7D00E02452 /* EIRBrowseController.swift */; };
 		B85DC856197DA11400E02452 /* EIRSystemResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DC855197DA11400E02452 /* EIRSystemResources.swift */; };
-		B85DC85B197DC77200E02452 /* binary7.png in Resources */ = {isa = PBXBuildFile; fileRef = B85DC858197DC77200E02452 /* binary7.png */; };
-		B85DC85C197DC77200E02452 /* career.png in Resources */ = {isa = PBXBuildFile; fileRef = B85DC859197DC77200E02452 /* career.png */; };
-		B85DC85D197DC77200E02452 /* website8.png in Resources */ = {isa = PBXBuildFile; fileRef = B85DC85A197DC77200E02452 /* website8.png */; };
+		B85DC85B197DC77200E02452 /* developer.png in Resources */ = {isa = PBXBuildFile; fileRef = B85DC858197DC77200E02452 /* developer.png */; };
+		B85DC85C197DC77200E02452 /* management.png in Resources */ = {isa = PBXBuildFile; fileRef = B85DC859197DC77200E02452 /* management.png */; };
+		B85DC85D197DC77200E02452 /* design.png in Resources */ = {isa = PBXBuildFile; fileRef = B85DC85A197DC77200E02452 /* design.png */; };
 		B85DC863197DD77000E02452 /* EIRHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DC862197DD77000E02452 /* EIRHomeController.swift */; };
 		B85DC865197EC6D700E02452 /* EIRPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DC864197EC6D700E02452 /* EIRPostController.swift */; };
 		B85DC86B197EDAFB00E02452 /* EIRShowAllController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DC86A197EDAFB00E02452 /* EIRShowAllController.swift */; };
@@ -35,14 +35,19 @@
 		B85DC875197F069500E02452 /* EIRCityPickerTableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DC874197F069500E02452 /* EIRCityPickerTableViewHelper.swift */; };
 		B85DC877197F081000E02452 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DC876197F081000E02452 /* ViewController.swift */; };
 		B86B75F61981963900ECDACE /* EIRMatch.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = B86B75F51981963900ECDACE /* EIRMatch.entitlements */; };
+		B8898AB119896BBB00727F14 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = B8898AB019896BBB00727F14 /* check.png */; };
 		B88C0E271982F554001E805B /* EIRPostDetailViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88C0E261982F553001E805B /* EIRPostDetailViewer.swift */; };
 		B88C0E2A1982FF9A001E805B /* packet.png in Resources */ = {isa = PBXBuildFile; fileRef = B88C0E291982FF9A001E805B /* packet.png */; };
 		B88C0E2C1986BE7D001E805B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88C0E2B1986BE7D001E805B /* MessageUI.framework */; };
 		B88C0E2E1986C06F001E805B /* EIRMessageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88C0E2D1986C06F001E805B /* EIRMessageDelegate.swift */; };
 		B897D47C1988365000D9BA08 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B897D47B1988365000D9BA08 /* Social.framework */; };
+		B89891A3198ABA1800DC9EB0 /* EIROldFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89891A2198ABA1800DC9EB0 /* EIROldFunctions.swift */; };
 		B89EE056197F2C6D002F4FF4 /* EIRShowAllTableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89EE055197F2C6D002F4FF4 /* EIRShowAllTableViewHelper.swift */; };
 		B8AF79C919883E7300128E66 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B897D479198835BC00D9BA08 /* Foundation.framework */; };
 		B8AF79CB19883F2700128E66 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8AF79CA19883F2700128E66 /* UIKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		B8BE0AAF19899F0000DCC5BF /* EIRHomeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BE0AAE19899F0000DCC5BF /* EIRHomeFormatter.swift */; };
+		B8BE0AB11989A00200DCC5BF /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = B8BE0AB01989A00200DCC5BF /* refresh.png */; };
+		B8BE0AB31989B2C900DCC5BF /* EIRPostDetailFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BE0AB21989B2C900DCC5BF /* EIRPostDetailFormatter.swift */; };
 		B8FFC98C1980218500372EA7 /* EIRPostHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FFC98B1980218500372EA7 /* EIRPostHelper.swift */; };
 		B8FFC98E198021D000372EA7 /* EIRPostCellFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FFC98D198021D000372EA7 /* EIRPostCellFormatter.swift */; };
 		B8FFC9901980307D00372EA7 /* EIRPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FFC98F1980307D00372EA7 /* EIRPost.swift */; };
@@ -78,9 +83,9 @@
 		B85D1C9F1986E0860087A4A2 /* user91.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user91.png; sourceTree = "<group>"; };
 		B85D1CA11986E3AB0087A4A2 /* EIRPersonDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRPersonDetailsController.swift; sourceTree = "<group>"; };
 		B85D1CA41986E9F00087A4A2 /* EIRHomeMDCHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRHomeMDCHelper.swift; sourceTree = "<group>"; };
-		B85D1CA61986EB440087A4A2 /* design.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = design.png; sourceTree = "<group>"; };
-		B85D1CA81986EF140087A4A2 /* developer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = developer.png; sourceTree = "<group>"; };
-		B85D1CA91986EF140087A4A2 /* management.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = management.png; sourceTree = "<group>"; };
+		B85D1CA61986EB440087A4A2 /* designColor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = designColor.png; sourceTree = "<group>"; };
+		B85D1CA81986EF140087A4A2 /* developerColor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = developerColor.png; sourceTree = "<group>"; };
+		B85D1CA91986EF140087A4A2 /* managementColor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = managementColor.png; sourceTree = "<group>"; };
 		B85D1CAC1986F80E0087A4A2 /* EIRLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRLoginController.swift; sourceTree = "<group>"; };
 		B85D1CAE1986FBE40087A4A2 /* EIRLoginHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRLoginHelper.swift; sourceTree = "<group>"; };
 		B85D1CB1198704B20087A4A2 /* EIRLoginCellFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRLoginCellFormatter.swift; sourceTree = "<group>"; };
@@ -94,9 +99,9 @@
 		B85DC849197D99F400E02452 /* EIRMatchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EIRMatchTests.swift; sourceTree = "<group>"; };
 		B85DC853197D9C7D00E02452 /* EIRBrowseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRBrowseController.swift; sourceTree = "<group>"; };
 		B85DC855197DA11400E02452 /* EIRSystemResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRSystemResources.swift; sourceTree = "<group>"; };
-		B85DC858197DC77200E02452 /* binary7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = binary7.png; sourceTree = "<group>"; };
-		B85DC859197DC77200E02452 /* career.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = career.png; sourceTree = "<group>"; };
-		B85DC85A197DC77200E02452 /* website8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = website8.png; sourceTree = "<group>"; };
+		B85DC858197DC77200E02452 /* developer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = developer.png; sourceTree = "<group>"; };
+		B85DC859197DC77200E02452 /* management.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = management.png; sourceTree = "<group>"; };
+		B85DC85A197DC77200E02452 /* design.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = design.png; sourceTree = "<group>"; };
 		B85DC862197DD77000E02452 /* EIRHomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRHomeController.swift; sourceTree = "<group>"; };
 		B85DC864197EC6D700E02452 /* EIRPostController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRPostController.swift; sourceTree = "<group>"; };
 		B85DC86A197EDAFB00E02452 /* EIRShowAllController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRShowAllController.swift; sourceTree = "<group>"; };
@@ -104,14 +109,19 @@
 		B85DC874197F069500E02452 /* EIRCityPickerTableViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRCityPickerTableViewHelper.swift; sourceTree = "<group>"; };
 		B85DC876197F081000E02452 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B86B75F51981963900ECDACE /* EIRMatch.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = EIRMatch.entitlements; path = EIRMatch/EIRMatch.entitlements; sourceTree = "<group>"; };
+		B8898AB019896BBB00727F14 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
 		B88C0E261982F553001E805B /* EIRPostDetailViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRPostDetailViewer.swift; sourceTree = "<group>"; };
 		B88C0E291982FF9A001E805B /* packet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = packet.png; sourceTree = "<group>"; };
 		B88C0E2B1986BE7D001E805B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		B88C0E2D1986C06F001E805B /* EIRMessageDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRMessageDelegate.swift; sourceTree = "<group>"; };
 		B897D479198835BC00D9BA08 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B897D47B1988365000D9BA08 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		B89891A2198ABA1800DC9EB0 /* EIROldFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIROldFunctions.swift; sourceTree = "<group>"; };
 		B89EE055197F2C6D002F4FF4 /* EIRShowAllTableViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRShowAllTableViewHelper.swift; sourceTree = "<group>"; };
 		B8AF79CA19883F2700128E66 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B8BE0AAE19899F0000DCC5BF /* EIRHomeFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRHomeFormatter.swift; sourceTree = "<group>"; };
+		B8BE0AB01989A00200DCC5BF /* refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh.png; sourceTree = "<group>"; };
+		B8BE0AB21989B2C900DCC5BF /* EIRPostDetailFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRPostDetailFormatter.swift; sourceTree = "<group>"; };
 		B8FFC98B1980218500372EA7 /* EIRPostHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRPostHelper.swift; sourceTree = "<group>"; };
 		B8FFC98D198021D000372EA7 /* EIRPostCellFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRPostCellFormatter.swift; sourceTree = "<group>"; };
 		B8FFC98F1980307D00372EA7 /* EIRPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIRPost.swift; sourceTree = "<group>"; };
@@ -273,15 +283,17 @@
 		B85DC857197DC77200E02452 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B85D1CA81986EF140087A4A2 /* developer.png */,
-				B85D1CA91986EF140087A4A2 /* management.png */,
-				B85D1CA61986EB440087A4A2 /* design.png */,
+				B8BE0AB01989A00200DCC5BF /* refresh.png */,
+				B8898AB019896BBB00727F14 /* check.png */,
+				B85D1CA81986EF140087A4A2 /* developerColor.png */,
+				B85D1CA91986EF140087A4A2 /* managementColor.png */,
+				B85D1CA61986EB440087A4A2 /* designColor.png */,
 				B85D1C9F1986E0860087A4A2 /* user91.png */,
 				B88C0E291982FF9A001E805B /* packet.png */,
 				B814D59B1982D44A008587A3 /* lightbulb.jpeg */,
-				B85DC858197DC77200E02452 /* binary7.png */,
-				B85DC859197DC77200E02452 /* career.png */,
-				B85DC85A197DC77200E02452 /* website8.png */,
+				B85DC858197DC77200E02452 /* developer.png */,
+				B85DC859197DC77200E02452 /* management.png */,
+				B85DC85A197DC77200E02452 /* design.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -290,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				B85DC862197DD77000E02452 /* EIRHomeController.swift */,
+				B8BE0AAE19899F0000DCC5BF /* EIRHomeFormatter.swift */,
 				B85D1CA41986E9F00087A4A2 /* EIRHomeMDCHelper.swift */,
 				B85D1CA31986E3B40087A4A2 /* PersonDetails */,
 				B88C0E281982F576001E805B /* PostViewer */,
@@ -305,6 +318,7 @@
 				B8FFC9941980680F00372EA7 /* EIRPostSaver.swift */,
 				B85DC853197D9C7D00E02452 /* EIRBrowseController.swift */,
 				B814D5971981BA2D008587A3 /* EIRBrowseButtonFormatter.swift */,
+				B89891A2198ABA1800DC9EB0 /* EIROldFunctions.swift */,
 			);
 			name = OLD;
 			path = EIRMatch;
@@ -342,6 +356,7 @@
 			isa = PBXGroup;
 			children = (
 				B88C0E261982F553001E805B /* EIRPostDetailViewer.swift */,
+				B8BE0AB21989B2C900DCC5BF /* EIRPostDetailFormatter.swift */,
 				B88C0E2D1986C06F001E805B /* EIRMessageDelegate.swift */,
 			);
 			name = PostViewer;
@@ -439,16 +454,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				B85DC83C197D99F400E02452 /* Main.storyboard in Resources */,
-				B85DC85B197DC77200E02452 /* binary7.png in Resources */,
+				B8898AB119896BBB00727F14 /* check.png in Resources */,
+				B85DC85B197DC77200E02452 /* developer.png in Resources */,
+				B8BE0AB11989A00200DCC5BF /* refresh.png in Resources */,
 				B86B75F61981963900ECDACE /* EIRMatch.entitlements in Resources */,
 				B85DC83E197D99F400E02452 /* Images.xcassets in Resources */,
-				B85D1CAA1986EF140087A4A2 /* developer.png in Resources */,
-				B85DC85D197DC77200E02452 /* website8.png in Resources */,
+				B85D1CAA1986EF140087A4A2 /* developerColor.png in Resources */,
+				B85DC85D197DC77200E02452 /* design.png in Resources */,
 				B88C0E2A1982FF9A001E805B /* packet.png in Resources */,
-				B85DC85C197DC77200E02452 /* career.png in Resources */,
-				B85D1CA71986EB440087A4A2 /* design.png in Resources */,
+				B85DC85C197DC77200E02452 /* management.png in Resources */,
+				B85D1CA71986EB440087A4A2 /* designColor.png in Resources */,
 				B814D59C1982D44A008587A3 /* lightbulb.jpeg in Resources */,
-				B85D1CAB1986EF140087A4A2 /* management.png in Resources */,
+				B85D1CAB1986EF140087A4A2 /* managementColor.png in Resources */,
 				B85D1CA01986E0860087A4A2 /* user91.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -522,6 +539,9 @@
 				B85D1CA21986E3AB0087A4A2 /* EIRPersonDetailsController.swift in Sources */,
 				B85DC856197DA11400E02452 /* EIRSystemResources.swift in Sources */,
 				B85D1CA51986E9F00087A4A2 /* EIRHomeMDCHelper.swift in Sources */,
+				B89891A3198ABA1800DC9EB0 /* EIROldFunctions.swift in Sources */,
+				B8BE0AB31989B2C900DCC5BF /* EIRPostDetailFormatter.swift in Sources */,
+				B8BE0AAF19899F0000DCC5BF /* EIRHomeFormatter.swift in Sources */,
 				B85D1CAD1986F80E0087A4A2 /* EIRLoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

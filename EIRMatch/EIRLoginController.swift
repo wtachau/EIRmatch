@@ -73,8 +73,8 @@ class EIRLoginController : UITableViewController {
                 self.tableView.reloadData()
                 
                 // Present alert
-                let alert = UIAlertView(title: "Error", message: errorString.capitalizedString, delegate: nil, cancelButtonTitle: "Ok")
-                alert.show()
+//                let alert = UIAlertView(title: "Error", message: errorString.capitalizedString, delegate: nil, cancelButtonTitle: "Ok")
+//                alert.show()
                 
                 // THIS WILL NEED TO BE IN IOS 8
 //                var alert = UIAlertController(title: "Error", message: errorString.capitalizedString, preferredStyle: UIAlertControllerStyle.Alert)
@@ -113,8 +113,8 @@ class EIRLoginController : UITableViewController {
                 self.tableView.reloadData()
                 
                 // Present alert
-                let alert = UIAlertView(title: "Error", message: errorString.capitalizedString, delegate: nil, cancelButtonTitle: "Ok")
-                alert.show()
+//                let alert = UIAlertView(title: "Error", message: errorString.capitalizedString, delegate: nil, cancelButtonTitle: "Ok")
+//                alert.show()
                 
 //                FOR IOS 8
 //                var alert = UIAlertController(title: "Error", message: errorString.capitalizedString, preferredStyle: UIAlertControllerStyle.Alert)

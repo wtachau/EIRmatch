@@ -61,7 +61,8 @@ enum City : Int {
 }
 
 enum Role : Int {
-    case Management = 1, Developer, Design
+    case Management = 0, Developer, Design
+    // used to select (i.e. "i need ___")
     func string() -> String {
         switch self {
         case .Management:
@@ -70,6 +71,27 @@ enum Role : Int {
             return "Developers"
         case .Design:
             return "Designers"
+        }
+    }
+    // used to identify (i.e. "i can help with ___")
+    func idString() -> String {
+        switch self {
+        case .Management:
+            return "Strategy"
+        case .Developer:
+            return "Developing"
+        case .Design:
+            return "Designing"
+        }
+    }
+    func colorImage() -> UIImage {
+        switch self {
+        case .Management:
+            return UIImage(named: "managementColor.png")
+        case .Developer:
+            return UIImage(named: "developerColor.png")
+        case .Design:
+            return UIImage(named: "designColor.png")
         }
     }
     func image() -> UIImage {

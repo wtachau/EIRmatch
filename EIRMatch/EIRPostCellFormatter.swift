@@ -19,7 +19,7 @@ extension EIRPostController {
         if let cell = Cell  {
             
             // need ! to guarantee that role exists
-            var role = Role.fromRaw(indexPath.row + 1)!
+            var role = Role.fromRaw(indexPath.row)!
             
             // here we need ! to guarantee that dict value exists
             needs[role]!.transform = CGAffineTransformMakeScale(0.75, 0.75)

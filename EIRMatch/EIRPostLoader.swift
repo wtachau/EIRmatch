@@ -32,10 +32,10 @@ class EIRPostLoader : NSObject {
                         var user = postObject["userID"] as PFObject
                             
                         // turn string:string dict into int:bool
-                        var needs = Dictionary<Int, Bool>()
+                        var needs = Dictionary<Role, Bool>()
                         if let needsDict = postObject["needs"] as? [String:String] {
                             for (key, value) in needsDict {
-                                needs[key.bridgeToObjectiveC().integerValue] = (value == "1") ? true : false
+                                needs[Role.fromRaw(key.bridgeToObjectiveC().integerValue)!] = (value == "1") ? true : false
                             }
                         }
                         // Now generate post

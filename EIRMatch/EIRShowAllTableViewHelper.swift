@@ -38,11 +38,8 @@ class EIRShowAllTableViewHelper : NSObject, UITableViewDataSource, UITableViewDe
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         let cell = UITableViewCell(style: UITableViewCellStyle.Value2, reuseIdentifier: nil)
-
-        if let nameText = allPosts[indexPath.row].username {
-            cell.textLabel.text = nameText
-            cell.textLabel.textColor = UIColor.whiteColor()
-        }
+        cell.textLabel.text = allPosts[indexPath.row].title
+        cell.textLabel.textColor = UIColor.whiteColor()
         cell.backgroundColor = backgroundColor
         return cell
     }
@@ -52,8 +49,6 @@ class EIRShowAllTableViewHelper : NSObject, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         
         let postViewer = EIRPostDetailViewer(post: allPosts[indexPath.row])
-        
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         appDelegate.navigationController!.pushViewController(postViewer, animated: true)
         
     }

@@ -10,7 +10,7 @@ import UIKit
 
 class EIRHomeController : ViewController, MDCSwipeToChooseDelegate {
     
-    var SeeAllButton = UIButton()
+    var ShowAllButton = UIButton()
     
     // Store all the posts, to be used in showing views
     var allPosts = Array<EIRPost>()
@@ -35,33 +35,88 @@ class EIRHomeController : ViewController, MDCSwipeToChooseDelegate {
         var personImage = UIImage(named: "user91.png")
         let imageSize = CGFloat(25.0)
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: RBResizeImage(personImage, CGSizeMake(imageSize, imageSize)), style: UIBarButtonItemStyle.Bordered, target: self, action: "detailsTapped:")
+        navigationItem.title = ""
         
-        // Initialize see all button
-        let buttonWidth = CGFloat(80)
-        let buttonHeight = CGFloat(40)
-        SeeAllButton.frame = CGRectMake((view.bounds.width - buttonWidth)/2,
-                                        0.70 * self.view.bounds.height,
-                                        buttonWidth, buttonHeight)
-        SeeAllButton.layer.cornerRadius = 10
-        SeeAllButton.layer.masksToBounds = true
-        SeeAllButton.addTarget(self, action: "showAllTapped:", forControlEvents: UIControlEvents.TouchUpInside)
-        SeeAllButton.setTitle("show all", forState: UIControlState.Normal)
-        SeeAllButton.titleLabel.textColor = UIColor.whiteColor()
-        SeeAllButton.layer.borderWidth = 2
-        SeeAllButton.layer.borderColor = UIColor.whiteColor().CGColor
-        view.addSubview(SeeAllButton)
+        // give details controller closure to refresh posts
+        if let detailsController = appDelegate.detailsController {
+            detailsController.setUpRefresh(refreshPosts)
+        }
+        
+        formatShowAllButton()
+    }
+    
+    // Refresh posts (when user clicks or posts run out)
+    func refreshPosts() {
+        // remove all mdcviews, if there are any
+        for subview in view.subviews {
+            if subview.isKindOfClass(MDCSwipeToChooseView) {
+                subview.removeFromSuperview()
+            }
+        }
+        
+        refresher.startAnimating()
+        postLoader.loadAllPosts(setAllPosts)
     }
     
     // Update datasource with new posts (func sent to postLoader)
     func setAllPosts(posts: [EIRPost]) -> () {
         allPosts = posts
+        
+        sortPosts()
+        
         refresher.stopAnimating()
         
         // set up mdc views
         setUpMDCViews()
     }
+    
+    // Sort the posts according to the roles of the user (could be optimized?)
+    func sortPosts() {
+        
+        var sortedPosts = Array<EIRPost>()
+        var postsWithNumMatches = Array<(EIRPost, Int)>()
+        
+        // get dict of roles from user
+        var userRoles = Dictionary<Role, Bool>()
+        if let roles = PFUser.currentUser()["Roles"] as? [String:String] {
+            for (roleString, boolString) in roles {
+                userRoles[Role.fromRaw(roleString.bridgeToObjectiveC().integerValue)!] = (boolString == "1") ? true : false
+            }
+        }
+        
+        for currentPost in allPosts {
+            // find # of matches with user needs
+            var numMatches = 0
+            for (role, need) in currentPost.needs {
+                // if the post needs it and the user has it
+                if userRoles[role]! && need {
+                    numMatches++
+                }
+            }
+            
+            // put into correct place into tuple array
+            var placed = false
+            for (index, (post, num)) in enumerate(postsWithNumMatches) {
+                if numMatches > num {
+                    postsWithNumMatches.insert((currentPost, numMatches), atIndex: index)
+                    placed = true
+                    break
+                }
+            }
+            if !placed {
+                postsWithNumMatches.insert((currentPost, numMatches), atIndex: postsWithNumMatches.count)
+            }
+        }
+        
+        // get array from tuple array
+        for (post, _) in postsWithNumMatches {
+            sortedPosts.append(post)
+        }
+        
+        allPosts = sortedPosts
+    }
 
-    // If person details button tapped, push view controller 
+    // If person details button tapped, push view controller
     func detailsTapped(AnyObject) {
         navigationController.pushViewController(appDelegate.detailsController, animated: true)
     }

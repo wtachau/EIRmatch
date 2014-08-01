@@ -13,11 +13,11 @@ class EIRPost {
     var username : String?
     var userEmail : String
     var userID : PFObject?
-    var needs : Dictionary<Int, Bool>
+    var needs : Dictionary<Role, Bool>
     var title : String
     var description : String
     
-    init(username: String, userEmail: String, userID: PFObject, needs: Dictionary<Int, Bool>, title: String, description: String) {
+    init(username: String, userEmail: String, userID: PFObject, needs: Dictionary<Role, Bool>, title: String, description: String) {
         
         self.username = username
         self.userEmail = userEmail

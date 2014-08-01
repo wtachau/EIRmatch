@@ -16,6 +16,12 @@ extension EIRHomeController {
                 navigationController.pushViewController(postViewer, animated: true)
             }
         }
+        // if it was the last view, then refresh
+        if let mdcView = view as? MDCSwipeToChooseView {
+            if mdcView.tag == allPosts.count - 1 {
+                refreshPosts()
+            }
+        }
     }
     
     func setUpMDCViews() {
@@ -40,19 +46,29 @@ extension EIRHomeController {
             mdcView.backgroundColor = UIColor.blackColor()
             //mdcView.imageView.image = UIImage(named: "lightbulb.jpeg")
             
+            // title
+            let titleText = UILabel(frame:CGRect.zeroRect)
+            titleText.text = post.title
+            titleText.frame.origin = CGPointMake(15, 50)
+            titleText.font = UIFont(name:"HelveticaNeue-Light", size:32)
+            titleText.textColor = UIColor.whiteColor()
+            titleText.sizeToFit()
+            mdcView.addSubview(titleText)
+            
             // Get the name
-            let nameText = UILabel(frame: CGRectMake(10,40,150,30))
+            let nameText = UILabel(frame: CGRectMake(25,85,150,30))
+            nameText.font = UIFont(name: "HelveticaNeue-Light", size: 18)
             nameText.text = post.username
             nameText.textColor = UIColor.whiteColor()
             mdcView.addSubview(nameText)
             
             // Get the city (from user)
-            if let city = post.userID!.objectForKey("city") as? Int {
-                let cityText = UILabel(frame:CGRectMake(10,60,150,30))
-                cityText.text = City.fromRaw(city)!.string()
-                cityText.textColor = UIColor.whiteColor()
-                mdcView.addSubview(cityText)
-            }
+//            if let city = post.userID!.objectForKey("city") as? Int {
+//                let cityText = UILabel(frame:CGRectMake(10,60,150,30))
+//                cityText.text = City.fromRaw(city)!.string()
+//                cityText.textColor = UIColor.whiteColor()
+//                mdcView.addSubview(cityText)
+//            }
             
             // Add needs icons
             let spacing = CGFloat(10.0)
@@ -61,13 +77,14 @@ extension EIRHomeController {
             for (role, value) in post.needs {
                 if value {
                     var needsIcon = UIImageView(frame: CGRectMake(xOffset, 10, iconSize, iconSize))
-                    needsIcon.image = Role.fromRaw(role)!.image()
+                    needsIcon.image = role.colorImage()
                     mdcView.addSubview(needsIcon)
                     xOffset += (iconSize + spacing)
                 }
             }
             mdcView.tag = index
             view.addSubview(mdcView)
+            view.sendSubviewToBack(mdcView)
         }
     }
     
