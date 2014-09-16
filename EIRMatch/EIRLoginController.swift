@@ -42,6 +42,8 @@ class EIRLoginController : UITableViewController {
         tableView.dataSource = loginHelper
         tableView.delegate = loginHelper
         tableView.backgroundColor = backgroundColor
+      
+        NSNotificationCenter.defaultCenter().addObserver(loginHelper, selector: "showKeyboard", name: UIKeyboardDidShowNotification, object: nil)
         
         // get rid of separator color
         tableView.separatorColor = UIColor.clearColor()
@@ -90,6 +92,8 @@ class EIRLoginController : UITableViewController {
         user.username = nameField.text
         user.password = passwordField.text
         user.email = emailField.text
+        let roles = ["0":"0","1":"0","2":"0"]
+        user["Roles"] = roles
         
         // get city (city enum)
         user["city"] = {

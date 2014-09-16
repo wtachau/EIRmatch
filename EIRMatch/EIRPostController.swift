@@ -41,9 +41,9 @@ class EIRPostController : UITableViewController {
         tableView.backgroundColor = backgroundColor
         
         // to hide keyboard
-        let tap = UITapGestureRecognizer(target: self, action: "tableTapped:")
-        tableView.addGestureRecognizer(tap)
-        
+//      let tap = UITapGestureRecognizer(target: self, action: "tableTapped:")
+//        tableView.addGestureRecognizer(tap)
+//        
         // calculate height so bottom cell fills screen
         self.descHeight = view.bounds.size.height
                         - tableView.rectForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 1)).origin.y

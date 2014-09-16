@@ -149,20 +149,20 @@ class EIRPersonDetailsController: ViewController {
     
     // Set up logout button
     func formatLogout() {
-        let buttonWidth = CGFloat(80)
-        let buttonHeight = CGFloat(40)
-        
-        logoutButton.frame = CGRectMake((view.bounds.width - buttonWidth)/2,
-            0.80 * self.view.bounds.height,
-            buttonWidth, buttonHeight)
-        logoutButton.layer.cornerRadius = 10
-        logoutButton.layer.masksToBounds = true
-        logoutButton.addTarget(self, action: "logout:", forControlEvents: UIControlEvents.TouchUpInside)
-        logoutButton.setTitle("log out", forState: UIControlState.Normal)
-        logoutButton.titleLabel.textColor = UIColor.whiteColor()
-        logoutButton.layer.borderWidth = 2
-        logoutButton.layer.borderColor = UIColor.whiteColor().CGColor
-        view.addSubview(logoutButton)
+      let buttonWidth = CGFloat(80)
+      let buttonHeight = CGFloat(40)
+      
+      logoutButton.frame = CGRectMake((view.bounds.width - buttonWidth)/2,
+          0.80 * self.view.bounds.height,
+          buttonWidth, buttonHeight)
+      logoutButton.layer.cornerRadius = 10
+      logoutButton.layer.masksToBounds = true
+      logoutButton.addTarget(self, action: "logout:", forControlEvents: UIControlEvents.TouchUpInside)
+      logoutButton.setTitle("log out", forState: UIControlState.Normal)
+      logoutButton.titleLabel.textColor = UIColor.whiteColor()
+      logoutButton.layer.borderWidth = 2
+      logoutButton.layer.borderColor = UIColor.whiteColor().CGColor
+      view.addSubview(logoutButton)
     }
     
     // Logout, and perform app delegate's logout function
